@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="hourly_leave_list" model="ir.ui.view">
+        <field name="name">Hourly Leave</field>
+        <field name="model">sd_hr_holidays.hourly_leave</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="employee_id"/>
+                <field name="department_id"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="hourly_leave_form" model="ir.ui.view">
+        <field name="name">Hourly Leave</field>
+        <field name="model">sd_hr_holidays.hourly_leave</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <header invisible="not id">
+                        <field name="state" groups="!hr_contract.group_hr_contract_manager" widget="statusbar"/>
+                        <field name="state" groups="hr_contract.group_hr_contract_manager" widget="statusbar" options="{'clickable': '1'}"/>
+                    </header>
+                    <group>
+                        <field name="employee_id"/>
+                        <field name="department_id"/>
+                        <field name="approvers" widget="many2many_avatar_user"/>
+
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="hourly_leave_action" model="ir.actions.act_window">
+        <field name="name">Hourly Leave</field>
+        <field name="res_model">sd_hr_holidays.hourly_leave</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem
+            id="hourly_leave"
+            name="Hourly Leave"
+            parent="hr.menu_hr_employee_payroll"
+            action="hourly_leave_action"
+            sequence="7"   />
+
+</odoo>
