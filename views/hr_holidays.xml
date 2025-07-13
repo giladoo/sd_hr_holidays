@@ -17,6 +17,33 @@
         </field>
     </record>
 
+    <record id="hr_leave_view_tree_inherit" model="ir.ui.view">
+        <field name="name">hr.leave.view.tree.inherit</field>
+        <field name="model">hr.leave</field>
+        <field name="inherit_id" ref="hr_holidays.hr_leave_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='activity_exception_decoration']" position="before">
+                    <field name="registered" widget="boolean_toggle" groups="hr_holidays.group_hr_holidays_manager"/>
+            </xpath>
+
+
+        </field>
+    </record>
+
+    <record id="view_hr_holidays_filter_inherit" model="ir.ui.view">
+        <field name="name">hr.leave.view.search.inherit</field>
+        <field name="model">hr.leave</field>
+        <field name="inherit_id" ref="hr_holidays.view_hr_holidays_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                    <field name="registered" groups="hr_holidays.group_hr_holidays_manager"/>
+                <filter name="not_registered" string="Not Registered" domain="[('registered', '=', False),('state', '=', 'validate'), ]"/>
+            </xpath>
+
+
+        </field>
+    </record>
+
  <record id="hr_leave_view_form_inherit" model="ir.ui.view">
         <field name="name">hr.leave.view.form.inherit</field>
         <field name="model">hr.leave</field>
