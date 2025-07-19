@@ -2,6 +2,24 @@
 <odoo>
 
 
+    <record id="edit_holiday_status_form_inherit" model="ir.ui.view">
+        <field name="name">hr.leave.view.form.inherit</field>
+        <field name="model">hr.leave.type</field>
+        <field name="inherit_id" ref="hr_holidays.edit_holiday_status_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='time_type']" position="before">
+                <label for="mission"/>
+                <div class="o_row">
+                    <field name="mission"/>
+                    <field name="mission_calendar" invisible="not mission"/>
+
+                </div>
+            </xpath>
+
+
+        </field>
+    </record>
+
  <record id="hr_leave_view_form_manager_inherit" model="ir.ui.view">
         <field name="name">hr.leave.view.form.inherit</field>
         <field name="model">hr.leave</field>
