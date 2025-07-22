@@ -8,10 +8,11 @@
         <field name="inherit_id" ref="hr_holidays.edit_holiday_status_form"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='time_type']" position="before">
-                <label for="mission"/>
+                <field name="daily_mission" invisible="request_unit == 'hour'"/>
+                <label for="hourly_mission"  invisible="request_unit == 'day'"/>
                 <div class="o_row">
-                    <field name="mission"/>
-                    <field name="mission_calendar" invisible="not mission"/>
+                    <field name="hourly_mission" invisible="request_unit == 'day'"/>
+                    <field name="hourly_mission_calendar" invisible="request_unit == 'day'"/>
 
                 </div>
             </xpath>
@@ -67,6 +68,19 @@
         <field name="model">hr.leave</field>
         <field name="inherit_id" ref="hr_holidays.hr_leave_view_form"/>
         <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                    <group>
+                    <button name="daily_mission_detail" type="object" string="Detail" class="btn btn-secondary w-25"/>
+                        <field name="departure_time"/>
+                        <field name="departure_type"/>
+                        <field name="return_time"/>
+                        <field name="return_type"/>
+                        <field name="residence"/>
+                        <field name="mission_description"/>
+                    </group>
+
+
+            </xpath>
             <xpath expr="//field[@name='request_unit_half']" position="attributes">
                     <attribute name="invisible">1</attribute>
             </xpath>

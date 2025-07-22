@@ -11,12 +11,20 @@ class SdHrHolidaysLeave(models.Model):
     _inherit = "hr.leave"
 
     registered = fields.Boolean()
+    daily_mission = fields.Boolean(related='holiday_status_id.daily_mission')
+    mission_detail = fields.Many2one('sd_hr_holidays.mission_detail')
+    departure_time = fields.Selection(related='mission_detail.departure_time')
+    departure_type = fields.Selection(related='mission_detail.departure_type')
+    return_time = fields.Selection(related='mission_detail.return_time')
+    return_type = fields.Selection(related='mission_detail.return_type')
+    residence = fields.Selection(related='mission_detail.residence')
+    mission_description = fields.Text(related='mission_detail.description')
 
     def action_validate(self, check_state=True):
         current_employee = self.env.user.employee_id
         leaves = self._get_leaves_on_public_holiday()
         # Giladoo
-        if not self.holiday_status_id.mission and leaves:
+        if not self.holiday_status_id.hourly_mission and leaves:
             raise ValidationError(_('The following employees are not supposed to work during that period:\n %s') % ','.join(leaves.mapped('employee_id.name')))
         if check_state and any(holiday.state not in ['confirm', 'validate1'] and holiday.validation_type != 'no_validation' for holiday in self):
             raise UserError(_('Time off request must be confirmed in order to approve it.'))
@@ -103,9 +111,9 @@ class SdHrHolidaysLeave(models.Model):
                     hours = sum(map(lambda t: t[1], work_time_per_day_list))
                 else:
                     # Giladoo
-                    if leave.holiday_status_id.mission:
-                        mission_calendar = leave.holiday_status_id.mission_calendar
-                        work_days_data = leave.employee_id._get_work_days_data_batch(leave.date_from, leave.date_to, calendar=mission_calendar )[ leave.employee_id.id]
+                    if leave.holiday_status_id.hourly_mission:
+                        hourly_mission_calendar = leave.holiday_status_id.hourly_mission_calendar
+                        work_days_data = leave.employee_id._get_work_days_data_batch(leave.date_from, leave.date_to, calendar=hourly_mission_calendar )[ leave.employee_id.id]
                         hours, days = work_days_data['hours'], work_days_data['days']
                     else:
 
@@ -125,6 +133,26 @@ class SdHrHolidaysLeave(models.Model):
 
         return result
 
+    def daily_mission_detail(self):
+        mission_detail_model = self.env['sd_hr_holidays.mission_detail']
+        if not self.mission_detail:
+            self.mission_detail = mission_detail_model.create({'leave': self.id})
+
+        print(f"\ndaily_mission_detail\n {self.mission_detail}")
+
+        context = {}
+        domain = []
+        return {
+            # 'name': _('documents'),
+            'domain': domain,
+            'res_model': 'sd_hr_holidays.mission_detail',
+            'res_id': self.mission_detail.id,
+            'type': 'ir.actions.act_window',
+            'view_id': False,
+            'view_mode': 'form',
+            'context': context,
+            'target': 'new'
+        }
 
 # def time_difference(self, dt1, dt2):
 #     # Ensure dt1 is earlier than dt2
@@ -141,5 +169,13 @@ class SdHrHolidaysLeave(models.Model):
 class SdHrHolidaysLeave(models.Model):
     _inherit = "hr.leave.type"
 
-    mission = fields.Boolean()
-    mission_calendar = fields.Many2one('resource.calendar')
+    hourly_mission = fields.Boolean()
+    hourly_mission_calendar = fields.Many2one('resource.calendar')
+
+    daily_mission = fields.Boolean()
+
+
+
+
+
+

@@ -20,6 +20,7 @@
         'security/ir.model.access.csv',
         'views/hr_employee_views.xml',
         'views/hr_holidays.xml',
+        'views/mission_detail.xml',
         'views/views.xml',
     ],
     'assets':{

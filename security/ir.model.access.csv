@@ -1,4 +1,6 @@
 id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
 access_sd_hr_holidays_hourly_leave_manager,sd_hr_holidays.hourly_leave,model_sd_hr_holidays_hourly_leave,hr.group_hr_manager,1,1,1,1
+access_sd_hr_holidays_mission_detail_base_user,sd_hr_holidays.mission_detail,model_sd_hr_holidays_mission_detail,base.group_user,1,1,1,0
+access_sd_hr_holidays_mission_detail_manager,sd_hr_holidays.mission_detail,model_sd_hr_holidays_mission_detail,hr.group_hr_manager,1,1,1,1
 
 
