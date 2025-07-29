@@ -26,12 +26,16 @@
 <!--                        <field name="state" groups="hr_contract.group_hr_contract_manager" widget="statusbar" options="{'clickable': '1'}"/>-->
                     </header>
                     <field name="leave" readonly="1"/>
+                    <field name="project_name"/>
+
                     <group>
 <!--                            <field name="departure_date"/>-->
                         <separator string="Departure"/>
+                            <field name="departure_city"/>
                             <field name="departure_time" widget="radio" options="{'horizontal': True}"/>
                             <field name="departure_type" widget="radio" options="{'horizontal': True}"/>
                         <separator string="Return"/>
+                        <field name="return_city"/>
                             <field name="return_time" widget="radio" options="{'horizontal': True}"/>
                             <field name="return_type" widget="radio" options="{'horizontal': True}"/>
                         <separator string="Residence"/>

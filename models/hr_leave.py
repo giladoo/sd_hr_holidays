@@ -134,25 +134,26 @@ class SdHrHolidaysLeave(models.Model):
         return result
 
     def daily_mission_detail(self):
-        mission_detail_model = self.env['sd_hr_holidays.mission_detail']
-        if not self.mission_detail:
-            self.mission_detail = mission_detail_model.create({'leave': self.id})
+        if self.state != 'confirm':
+            return
+        else:
+            mission_detail_model = self.env['sd_hr_holidays.mission_detail']
+            if not self.mission_detail:
+                self.mission_detail = mission_detail_model.create({'leave': self.id})
 
-        print(f"\ndaily_mission_detail\n {self.mission_detail}")
-
-        context = {}
-        domain = []
-        return {
-            # 'name': _('documents'),
-            'domain': domain,
-            'res_model': 'sd_hr_holidays.mission_detail',
-            'res_id': self.mission_detail.id,
-            'type': 'ir.actions.act_window',
-            'view_id': False,
-            'view_mode': 'form',
-            'context': context,
-            'target': 'new'
-        }
+            context = {}
+            domain = []
+            return {
+                # 'name': _('documents'),
+                'domain': domain,
+                'res_model': 'sd_hr_holidays.mission_detail',
+                'res_id': self.mission_detail.id,
+                'type': 'ir.actions.act_window',
+                'view_id': False,
+                'view_mode': 'form',
+                'context': context,
+                'target': 'new'
+            }
 
 # def time_difference(self, dt1, dt2):
 #     # Ensure dt1 is earlier than dt2

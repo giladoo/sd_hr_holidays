@@ -8,11 +8,12 @@
         <field name="inherit_id" ref="hr_holidays.edit_holiday_status_form"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='time_type']" position="before">
-                <field name="daily_mission" invisible="request_unit == 'hour'"/>
-                <label for="hourly_mission"  invisible="request_unit == 'day'"/>
-                <div class="o_row">
-                    <field name="hourly_mission" invisible="request_unit == 'day'"/>
-                    <field name="hourly_mission_calendar" invisible="request_unit == 'day'"/>
+                <field name="daily_mission" invisible="request_unit in ['hour', 'half_day']"/>
+
+                <label for="hourly_mission" invisible="request_unit in ['day', 'half_day']"/>
+                <div class="o_row " invisible="request_unit in ['day', 'half_day']">
+                    <field name="hourly_mission" />
+                    <field name="hourly_mission_calendar" />
 
                 </div>
             </xpath>
@@ -21,16 +22,16 @@
         </field>
     </record>
 
- <record id="hr_leave_view_form_manager_inherit" model="ir.ui.view">
+    <record id="hr_leave_view_form_manager_inherit" model="ir.ui.view">
         <field name="name">hr.leave.view.form.inherit</field>
         <field name="model">hr.leave</field>
         <field name="inherit_id" ref="hr_holidays.hr_leave_view_form_manager"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='request_unit_half']" position="attributes">
-                    <attribute name="invisible">1</attribute>
+                <attribute name="invisible">1</attribute>
             </xpath>
             <xpath expr="//field[@name='request_unit_hours']" position="attributes">
-                    <attribute name="class">ms-0</attribute>
+                <attribute name="class">ms-0</attribute>
             </xpath>
 
         </field>
@@ -42,7 +43,7 @@
         <field name="inherit_id" ref="hr_holidays.hr_leave_view_tree"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='activity_exception_decoration']" position="before">
-                    <field name="registered" widget="boolean_toggle" groups="hr_holidays.group_hr_holidays_manager"/>
+                <field name="registered" widget="boolean_toggle" groups="hr_holidays.group_hr_holidays_manager"/>
             </xpath>
 
 
@@ -55,37 +56,73 @@
         <field name="inherit_id" ref="hr_holidays.view_hr_holidays_filter"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='name']" position="after">
-                    <field name="registered" groups="hr_holidays.group_hr_holidays_manager"/>
-                <filter name="not_registered" string="Not Registered" domain="[('registered', '=', False),('state', '=', 'validate'), ]"/>
+                <field name="registered" groups="hr_holidays.group_hr_holidays_manager"/>
+                <filter name="not_registered" string="Not Registered"
+                        domain="[('registered', '=', False),('state', '=', 'validate'), ]"/>
             </xpath>
 
 
         </field>
     </record>
 
- <record id="hr_leave_view_form_inherit" model="ir.ui.view">
+    <record id="hr_leave_view_form_inherit" model="ir.ui.view">
         <field name="name">hr.leave.view.form.inherit</field>
         <field name="model">hr.leave</field>
         <field name="inherit_id" ref="hr_holidays.hr_leave_view_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='name']" position="after">
-                    <group>
-                    <button name="daily_mission_detail" type="object" string="Detail" class="btn btn-secondary w-25"/>
-                        <field name="departure_time"/>
-                        <field name="departure_type"/>
-                        <field name="return_time"/>
-                        <field name="return_type"/>
-                        <field name="residence"/>
-                        <field name="mission_description"/>
-                    </group>
+            <xpath expr="//field[@name='name']" position="before">
+                <div class="row m-3" invisible="not daily_mission">
+                    <div class="o_row col-1 p-1 ">
+                        <button name="daily_mission_detail" type="object"
+                                string="Travel" class="btn btn-secondary w-25"/>
+
+                    </div>
+                    <div class="col-12 col-sm-10 px-1 border rounded">
+                        <div class="row mx-0">
+                            <div class="col-4 col-lg-3 p-1">
+                                <label for="departure_time"/>
+                            </div>
+                            <div class="col-4 col-lg-3 p-1">
+                                <field name="departure_time"/>
+                            </div>
+                            <div class="col-4 col-lg-3 p-1">
+                                <field name="departure_type"/>
+                            </div>
+                        </div>
+                        <div class="row mx-0">
+                            <div class="col-4 col-lg-3 p-1">
+
+                                <label for="return_time"/>
+                            </div>
+                            <div class="col-4 col-lg-3 p-1">
+                                <field name="return_time"/>
+                            </div>
+                            <div class="col-4 col-lg-3 p-1">
+                                <field name="return_type"/>
+                            </div>
+                        </div>
+                        <div class="row mx-0">
+                            <div class="col-4 col-lg-3 p-1">
+
+                                <label for="residence"/>
+                            </div>
+                            <div class="col-4 col-lg-3 p-1">
+                                <field name="residence"/>
+                            </div>
+                            <div class="col-12 col-lg-3 p-1">
+                                <field name="mission_description"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
 
             </xpath>
             <xpath expr="//field[@name='request_unit_half']" position="attributes">
-                    <attribute name="invisible">1</attribute>
+                <attribute name="invisible">1</attribute>
             </xpath>
             <xpath expr="//field[@name='request_unit_hours']" position="attributes">
-                    <attribute name="class">ms-0</attribute>
+                <attribute name="class">ms-0</attribute>
             </xpath>
         </field>
     </record>
