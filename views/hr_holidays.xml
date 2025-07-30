@@ -75,12 +75,23 @@
                     <div class="o_row col-1 p-1 ">
                         <button name="daily_mission_detail" type="object"
                                 string="Travel" class="btn btn-secondary w-25"/>
-
                     </div>
                     <div class="col-12 col-sm-10 px-1 border rounded">
                         <div class="row mx-0">
                             <div class="col-4 col-lg-3 p-1">
-                                <label for="departure_time"/>
+                                <label for="project_name" string="Project"/>
+                            </div>
+                            <div class="col-8 col-lg-9 p-1">
+                                <field name="project_name" options="{'no_open': 1}"/>
+                            </div>
+
+                        </div>
+                        <div class="row mx-0">
+                            <div class="col-4 col-lg-3 p-1">
+                                <label for="departure_time" string="Departure"/>
+                            </div>
+                            <div class="col-4 col-lg-3 p-1">
+                                <field name="departure_city"/>
                             </div>
                             <div class="col-4 col-lg-3 p-1">
                                 <field name="departure_time"/>
@@ -92,7 +103,10 @@
                         <div class="row mx-0">
                             <div class="col-4 col-lg-3 p-1">
 
-                                <label for="return_time"/>
+                                <label for="return_time" string="Return"/>
+                            </div>
+                            <div class="col-4 col-lg-3 p-1">
+                                <field name="return_city"/>
                             </div>
                             <div class="col-4 col-lg-3 p-1">
                                 <field name="return_time"/>

@@ -15,7 +15,7 @@
     'installable': True,
     'auto_install': False,
     'application': False,
-    'depends': ['hr', ],
+    'depends': ['hr', 'sd_projects' ],
     'data': [
         'security/ir.model.access.csv',
         'views/hr_employee_views.xml',
