@@ -8,12 +8,18 @@
         <field name="inherit_id" ref="hr_holidays.edit_holiday_status_form"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='time_type']" position="before">
-                <field name="daily_mission" invisible="request_unit in ['hour', 'half_day']"/>
+<!--                <field name="daily_mission" invisible="request_unit in ['hour', 'half_day']"/>-->
 
+                <label for="daily_mission" invisible="request_unit in ['hour', 'half_day']"/>
+                <div class="o_row " invisible="request_unit in ['hour', 'half_day']">
+                    <field name="daily_mission" />
+                    <field name="daily_mission_calendar" invisible="not daily_mission" />
+
+                </div>
                 <label for="hourly_mission" invisible="request_unit in ['day', 'half_day']"/>
                 <div class="o_row " invisible="request_unit in ['day', 'half_day']">
                     <field name="hourly_mission" />
-                    <field name="hourly_mission_calendar" />
+                    <field name="hourly_mission_calendar" invisible="not hourly_mission" />
 
                 </div>
             </xpath>

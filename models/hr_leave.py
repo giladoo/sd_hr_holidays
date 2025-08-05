@@ -63,7 +63,12 @@ class SdHrHolidaysLeave(models.Model):
         for leave in employee_leaves:
             if not leave.date_from or not leave.date_to:
                 continue
-            employees_by_dates_calendar[(leave.date_from, leave.date_to, leave.holiday_status_id.include_public_holidays_in_duration, resource_calendar or leave.resource_calendar_id)] += leave.employee_id
+            if leave.holiday_status_id.daily_mission:
+                daily_mission_calendar = leave.holiday_status_id.daily_mission_calendar
+                employees_by_dates_calendar[(leave.date_from, leave.date_to, leave.holiday_status_id.include_public_holidays_in_duration, daily_mission_calendar)] += leave.employee_id
+
+            else:
+                employees_by_dates_calendar[(leave.date_from, leave.date_to, leave.holiday_status_id.include_public_holidays_in_duration, resource_calendar or leave.resource_calendar_id)] += leave.employee_id
         # We force the company in the domain as we are more than likely in a compute_sudo
         domain = [('time_type', '=', 'leave'),
                   ('company_id', 'in', self.env.companies.ids + self.env.context.get('allowed_company_ids', [])),
@@ -103,23 +108,36 @@ class SdHrHolidaysLeave(models.Model):
                 result[leave.id] = (days, hours)
                 continue
             hours, days = (0, 0)
+            ic(leave.employee_id.is_flexible, leave.leave_type_request_unit, check_leave_type, leave.holiday_status_id.daily_mission)
             if leave.employee_id:
                 if leave.employee_id.is_flexible and leave.leave_type_request_unit in ['day','half_day']:
                     duration = leave.date_to - leave.date_from
                     days = ceil(duration.total_seconds() / (24 * 3600))
                 elif leave.leave_type_request_unit == 'day' and check_leave_type:
                     # list of tuples (day, hours)
-                    work_time_per_day_list = work_time_per_day_mapped[(leave.date_from, leave.date_to, calendar)][leave.employee_id.id]
-                    days = len(work_time_per_day_list)
-                    hours = sum(map(lambda t: t[1], work_time_per_day_list))
+                    if leave.holiday_status_id.daily_mission:
+                        daily_mission_calendar = leave.holiday_status_id.daily_mission_calendar
+                        ic(calendar, daily_mission_calendar)
+                        work_time_per_day_list = work_time_per_day_mapped[(leave.date_from, leave.date_to, daily_mission_calendar)][leave.employee_id.id]
+                        days = len(work_time_per_day_list)
+                        hours = sum(map(lambda t: t[1], work_time_per_day_list))
+                        ic(work_time_per_day_list,)
+                    else:
+                        work_time_per_day_list = work_time_per_day_mapped[(leave.date_from, leave.date_to, calendar)][leave.employee_id.id]
+                        days = len(work_time_per_day_list)
+                        hours = sum(map(lambda t: t[1], work_time_per_day_list))
                 else:
                     # Giladoo
                     if leave.holiday_status_id.hourly_mission:
                         hourly_mission_calendar = leave.holiday_status_id.hourly_mission_calendar
                         work_days_data = leave.employee_id._get_work_days_data_batch(leave.date_from, leave.date_to, calendar=hourly_mission_calendar )[ leave.employee_id.id]
                         hours, days = work_days_data['hours'], work_days_data['days']
+                    elif leave.holiday_status_id.daily_mission:
+                        daily_mission_calendar = leave.holiday_status_id.daily_mission_calendar
+                        work_days_data = leave.employee_id._get_work_days_data_batch(leave.date_from, leave.date_to, calendar=daily_mission_calendar )[ leave.employee_id.id]
+                        hours, days = work_days_data['hours'], work_days_data['days']
+                        ic(daily_mission_calendar, work_days_data)
                     else:
-
                         work_days_data = work_days_data_mapped[(leave.date_from, leave.date_to, calendar)][
                             leave.employee_id.id]
                         hours, days = work_days_data['hours'], work_days_data['days']
@@ -133,6 +151,7 @@ class SdHrHolidaysLeave(models.Model):
             if leave.leave_type_request_unit == 'day' and check_leave_type:
                 days = ceil(days)
             result[leave.id] = (days, hours)
+            ic(days, hours)
 
         return result
 
@@ -177,6 +196,7 @@ class SdHrHolidaysLeave(models.Model):
     hourly_mission_calendar = fields.Many2one('resource.calendar')
 
     daily_mission = fields.Boolean()
+    daily_mission_calendar = fields.Many2one('resource.calendar')
 
 
 

@@ -23,6 +23,7 @@ class SdHrHolidaysMissionDetail(models.Model):
     departure_type = fields.Selection([('airplane', 'Airplane'),
                                        ('rail', 'Rail'),
                                        ('bus', 'Bus'),
+                                       ('internet_car', 'Internet Car'),
                                        ('company_car', 'Company Car'),
                                        ('rental_car', 'Rental Car'), ], default='airplane', required=True)
 
@@ -33,6 +34,7 @@ class SdHrHolidaysMissionDetail(models.Model):
     return_type = fields.Selection([('airplane', 'Airplane'),
                                        ('rail', 'Rail'),
                                        ('bus', 'Bus'),
+                                       ('internet_car', 'Internet Car'),
                                        ('company_car', 'Company Car'),
                                        ('rental_car', 'Rental Car'), ], default='airplane', required=True)
     residence = fields.Selection([('hotel', 'Hotel'),

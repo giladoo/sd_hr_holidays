@@ -35,7 +35,7 @@
                     </group>
                     <div class="row mx-0">
                         <div class="col-12 col-sm-6">
-                            <separator string="Departure" class=""/>
+                            <separator string="Departure" class="ps-2 bg-300"/>
                             <group>
                                 <field name="departure_city"/>
                                 <field name="departure_time" widget="radio" options="{'horizontal': True}"/>
@@ -43,7 +43,7 @@
                             </group>
                         </div>
                         <div class="col-12 col-sm-6">
-                            <separator string="Return" class=""/>
+                            <separator string="Return"  class="ps-2 bg-300"/>
 
                             <group >
                                 <field name="return_city"/>
@@ -52,7 +52,9 @@
                             </group>
                         </div>
                     </div>
-                    <group string="Residence">
+                    <separator string="Residence"  class="ps-2 bg-300"/>
+
+                    <group>
                         <field name="residence" widget="radio" options="{'horizontal': True}"/>
                         <field name="description"/>
                     </group>
