@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="holidays_text_box_template">
+        <div class="col col-sm-3 col-lg-2 px-1 px-lg-3">
+            <div t-att-class="'row text-center border rounded-3 shadow m-1 text_box_100' + ' ' +  (props.onClick ? 'cursor-pointer ' : ' ') + ' ' + props.class"
+                 t-on-click="props.hasOwnProperty('onClick') &amp;&amp; props.onClick ? ()=>props.onClick( props.key ) : ()=>{}">
+                <div t-att-class="'col-4 px-0 align-content-around rounded-start-3'  + ' ' +  props.classBg" t-att-style="'font-size: 3rem;'">
+                    <i t-att-class="props.icon"></i>
+                </div>
+                <div class="col-8 align-content-around ">
+                    <div class="h1 text-center">
+                        <t t-esc="props.value"/>
+                    </div>
+                    <div class="h5 text-center">
+                        <t t-esc="props.name"/>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </t>
+
+</templates>

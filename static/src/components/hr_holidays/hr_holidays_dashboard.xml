@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="holidays_dashboard_template">
+        <div class="container">
+
+        <div class="h1">HR LEAVES</div>
+        <div class="fa fa-refresh btn" t-on-click="this.refresh_btn"></div>
+        <div class="row mx-5">
+            <TextBox name="state.texts.myActions.name" value="state.texts.myActions.value" onClick="()=>onClick('leave_approve')"/>
+            <TextBox name="state.texts.myReports.name" value="state.texts.myReports.value" onClick="()=>onClick('mission_report')"/>
+            <TextBox name="state.texts.myApproves.name" value="state.texts.myApproves.value" onClick="()=>onClick('report_approve')"/>
+            <TextBox name="state.texts.notRegistered.name" value="state.texts.notRegistered.value" onClick="()=>onClick('not_registered')"/>
+
+        </div>
+        </div>
+    </t>
+
+</templates>

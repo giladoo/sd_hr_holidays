@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="mission_report_list" model="ir.ui.view">
+        <field name="name">Mission Report</field>
+        <field name="model">sd_hr_holidays.mission_report</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="leave"/>
+                <field name="departure_time"/>
+                <field name="return_time"/>
+                <field name="departure_type"/>
+                <field name="return_type"/>
+                <field name="residence"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="mission_report_form" model="ir.ui.view">
+        <field name="name">Mission Report</field>
+        <field name="model">sd_hr_holidays.mission_report</field>
+        <field name="arch" type="xml">
+
+            <form>
+                <sheet >
+                    <header invisible="not id">
+                        <!--                        <field name="state" groups="!hr_contract.group_hr_contract_manager" widget="statusbar"/>-->
+                        <!--                        <field name="state" groups="hr_contract.group_hr_contract_manager" widget="statusbar" options="{'clickable': '1'}"/>-->
+                    </header>
+                    <div class="h2 text-center mb-3">
+                        <field name="leave" readonly="1"/>
+                    </div>
+                    <group >
+                        <group>
+                            <field name="project_name" readonly="1" options="{'no_create': 1, 'no_open': 1}"/>
+                        </group>
+                    </group>
+                    <div class="row mx-0">
+                        <div class="col-12 col-sm-6">
+                            <separator string="Departure" class="ps-2 bg-300"/>
+                            <group>
+                                <field name="departure_city"/>
+                                <field name="departure_time" widget="radio" options="{'horizontal': True}"/>
+                                <field name="departure_type" widget="radio" options="{'horizontal': True}"/>
+                            </group>
+                        </div>
+                        <div class="col-12 col-sm-6">
+                            <separator string="Return"  class="ps-2 bg-300"/>
+
+                            <group >
+                                <field name="return_city"/>
+                                <field name="return_time" widget="radio" options="{'horizontal': True}"/>
+                                <field name="return_type" widget="radio" options="{'horizontal': True}"/>
+                            </group>
+                        </div>
+                    </div>
+                    <separator string="Residence"  class="ps-2 bg-300"/>
+
+                    <group>
+                        <field name="residence" widget="radio" options="{'horizontal': True}"/>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="mission_report_form_no_edit" model="ir.ui.view">
+        <field name="name">sd_hr_holidays.mission_report.form</field>
+        <field name="model">sd_hr_holidays.mission_report</field>
+        <field name="mode">primary</field>
+        <field name="inherit_id" ref="mission_report_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="attributes">
+                <attribute name="edit">0</attribute>
+                <attribute name="create">0</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="mission_report_action" model="ir.actions.act_window">
+        <field name="name">Mission Report</field>
+        <field name="res_model">sd_hr_holidays.mission_report</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem
+            id="mission_report"
+            name="Mission Report"
+            parent="hr.menu_hr_employee_payroll"
+            action="mission_report_action"
+            sequence="7"/>
+
+</odoo>

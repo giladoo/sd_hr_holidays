@@ -21,11 +21,14 @@
         'views/hr_employee_views.xml',
         'views/hr_holidays.xml',
         'views/mission_detail.xml',
+        'views/mission_report.xml',
         'views/views.xml',
     ],
     'assets':{
         'web.assets_backend':[
-          # 'sd_hr/static/src/components/**/*',
+          'sd_hr_holidays/static/src/components/**/*.js',
+          'sd_hr_holidays/static/src/components/**/*.xml',
+          'sd_hr_holidays/static/src/components/**/*.scss',
         ],
     },
 

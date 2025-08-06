@@ -48,8 +48,16 @@
         <field name="model">hr.leave</field>
         <field name="inherit_id" ref="hr_holidays.hr_leave_view_tree"/>
         <field name="arch" type="xml">
+            <xpath expr="//list" position="attributes">
+                <attribute name="decoration-info">write_date &gt; (datetime.datetime.now() - datetime.timedelta(hours=3, minutes=32)).strftime('%Y-%m-%d %H:%M:%S')</attribute>
+
+            </xpath>
             <xpath expr="//field[@name='activity_exception_decoration']" position="before">
                 <field name="registered" widget="boolean_toggle" groups="hr_holidays.group_hr_holidays_manager"/>
+                <field name="report_state" widget="badge" invisible="report_state in ['empty']"
+                    decoration-warning="report_state == 'reported'"
+                    decoration-success="report_state == 'approved'"
+                />
             </xpath>
 
 
@@ -64,7 +72,44 @@
             <xpath expr="//field[@name='name']" position="after">
                 <field name="registered" groups="hr_holidays.group_hr_holidays_manager"/>
                 <filter name="not_registered" string="Not Registered"
-                        domain="[('registered', '=', False),('state', '=', 'validate'), ]"/>
+                        domain="[ '|','|',
+                        '&amp;',
+                        ('state', '=', 'validate'),
+                        ('write_date', '&gt;', (datetime.datetime.now() - datetime.timedelta(hours=3, minutes=30)).strftime('%Y-%m-%d %H:%M:%S')),
+                        '&amp;','&amp;',
+                        ('registered', '=', False),
+                        ('state', '=', 'validate'),
+                        ('holiday_status_id.daily_mission', '=', False),
+                        '&amp;','&amp;',
+                        ('registered', '=', False),
+                        ('state', '=', 'validate'),
+                        ('report_state', '=', 'approved'),
+                        ]"/>
+                <filter name="report_approved" string="Report Approved"
+                        domain="[
+                        ('registered', '=', False),
+                        ('state', '=', 'validate'),
+                        ('report_state', '=', 'approved'),
+                        ]"
+                />
+                
+                <filter name="lsat_update" string="Last Updates"
+                        domain="[
+                        ('write_date', '&gt;', (datetime.datetime.now() - datetime.timedelta(hours=3, minutes=59)).strftime('%Y-%m-%d %H:%M:%S')),
+                        ]"/>
+                <filter name="mission_report" string="Mission Report"
+                        domain="[
+                        ('holiday_status_id.daily_mission', '=', True),
+                        ('state', '=', 'validate'),
+                        ('report_state', '=', 'empty'),
+                        ]"/>
+                <filter name="mission_approval" string="Mission Approval"
+                        domain="[
+                        ('holiday_status_id.daily_mission', '=', True),
+                        ('state', '=', 'validate'),
+                        ('report_state', '=', 'reported'),
+                        ]"/>
+
             </xpath>
 
 
@@ -77,61 +122,94 @@
         <field name="inherit_id" ref="hr_holidays.hr_leave_view_form"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='name']" position="before">
-                <div class="row m-3" invisible="not daily_mission">
-                    <div class="o_row col-1 p-1 ">
-                        <button name="daily_mission_detail" type="object"
-                                string="Travel" class="btn btn-secondary w-25"/>
+
+                <div class="row col-12 m-2 " invisible="not daily_mission">
+                    <div class="row col-12 mx-0 px-0">
+                        <div class="o_row col-1 p-1"  invisible="state != 'confirm'"  >
+                            <button name="daily_mission_detail" type="object"
+                                    string="Travel" class="btn btn-secondary w-25"/>
+                        </div>
+                        <div class="o_row1 col-2  rounded  " string="Travel" invisible="state == 'confirm'"></div>
+                        <div class="col-12 col-sm-10 px-1 border rounded">
+                            <div class="row mx-0">
+                                <div class="col-4 col-lg-3 p-1">
+                                    <label for="project_name" string="Project"/>
+                                </div>
+                                <div class="col-8 col-lg-9 p-1">
+                                    <field name="project_name" options="{'no_open': 1}"/>
+                                </div>
+
+                            </div>
+                            <div class="row mx-0">
+                                <div class="col-4 col-lg-3 p-1">
+                                    <label for="departure_time" string="Departure"/>
+                                </div>
+                                <div class="col-4 col-lg-3 p-1">
+                                    <field name="departure_city"/>
+                                </div>
+                                <div class="col-4 col-lg-3 p-1">
+                                    <field name="departure_time"/>
+                                </div>
+                                <div class="col-4 col-lg-3 p-1">
+                                    <field name="departure_type"/>
+                                </div>
+                            </div>
+                            <div class="row mx-0">
+                                <div class="col-4 col-lg-3 p-1">
+
+                                    <label for="return_time" string="Return"/>
+                                </div>
+                                <div class="col-4 col-lg-3 p-1">
+                                    <field name="return_city"/>
+                                </div>
+                                <div class="col-4 col-lg-3 p-1">
+                                    <field name="return_time"/>
+                                </div>
+                                <div class="col-4 col-lg-3 p-1">
+                                    <field name="return_type"/>
+                                </div>
+                            </div>
+                            <div class="row mx-0">
+                                <div class="col-4 col-lg-3 p-1">
+
+                                    <label for="residence"/>
+                                </div>
+                                <div class="col-4 col-lg-3 p-1">
+                                    <field name="residence"/>
+                                </div>
+                                <div class="col-12 col-lg-3 p-1">
+                                    <field name="mission_description"/>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
-                    <div class="col-12 col-sm-10 px-1 border rounded">
-                        <div class="row mx-0">
-                            <div class="col-4 col-lg-3 p-1">
-                                <label for="project_name" string="Project"/>
-                            </div>
-                            <div class="col-8 col-lg-9 p-1">
-                                <field name="project_name" options="{'no_open': 1}"/>
-                            </div>
-
+                    <div class="row col-12 mx-0 mt-2 px-0 p-2 border-top " invisible="state != 'validate'">
+                        <div class="o_row col-1 px-1 ">
+                            <button name="daily_mission_report" type="object"
+                                string="Report" class="btn btn-secondary w-25"/>
                         </div>
-                        <div class="row mx-0">
-                            <div class="col-4 col-lg-3 p-1">
-                                <label for="departure_time" string="Departure"/>
-                            </div>
-                            <div class="col-4 col-lg-3 p-1">
-                                <field name="departure_city"/>
-                            </div>
-                            <div class="col-4 col-lg-3 p-1">
-                                <field name="departure_time"/>
-                            </div>
-                            <div class="col-4 col-lg-3 p-1">
-                                <field name="departure_type"/>
-                            </div>
+                        <div class="col o_row mx-1">
+                            <button string="Reported" type="object" name="report_approval" class="btn btn-info"
+                                    invisible="report_state != 'empty'"
+                                    context="{'approval_btn': 'reported'}"/>
+                            <button string="Approve" type="object" name="report_approval" class="btn btn-success"
+                                    invisible="report_state != 'reported'"
+                                    context="{'approval_btn': 'approved'}"/>
+                            <button string="Return" type="object" name="report_approval" class="btn btn-warning"
+                                    invisible="report_state in ['empty', 'registered'] "
+                                    context="{'approval_btn': 'return'}"/>
+                            <button string="Return" type="object" name="report_approval" class="btn btn-warning"
+                                    invisible="report_state not in ['registered'] "
+                                    groups="hr_holidays.group_hr_holidays_user"
+                                    context="{'approval_btn': 'return'}"/>
                         </div>
-                        <div class="row mx-0">
-                            <div class="col-4 col-lg-3 p-1">
+                        <div class="col px-1 align-content-center text-end">
+                            <field name="report_state" readonly="1" class="py-1 px-3" widget="badge"
+                                   decoration-info="report_state == 'reported'"
+                                   decoration-success="report_state == 'approved'"
 
-                                <label for="return_time" string="Return"/>
-                            </div>
-                            <div class="col-4 col-lg-3 p-1">
-                                <field name="return_city"/>
-                            </div>
-                            <div class="col-4 col-lg-3 p-1">
-                                <field name="return_time"/>
-                            </div>
-                            <div class="col-4 col-lg-3 p-1">
-                                <field name="return_type"/>
-                            </div>
-                        </div>
-                        <div class="row mx-0">
-                            <div class="col-4 col-lg-3 p-1">
-
-                                <label for="residence"/>
-                            </div>
-                            <div class="col-4 col-lg-3 p-1">
-                                <field name="residence"/>
-                            </div>
-                            <div class="col-12 col-lg-3 p-1">
-                                <field name="mission_description"/>
-                            </div>
+                            />
                         </div>
                     </div>
                 </div>
@@ -148,4 +226,59 @@
     </record>
 
 
+
+<!--    <record id="action_window_leave_list" model="ir.actions.act_window.view">-->
+<!--        <field name="sequence" eval="5"/>-->
+<!--        <field name="view_mode">list</field>-->
+<!--        <field name="view_id" ref="view_holiday_list"/>-->
+<!--        <field name="act_window_id" ref="action_hr_available_holidays_report"/>-->
+<!--    </record>-->
+   <record id="hr_leave_action_action_approve_department_2" model="ir.actions.act_window">
+        <field name="name">All Time Off 2</field>
+        <field name="res_model">hr.leave</field>
+<!--        <field name="path">time-off-approval-2</field>-->
+        <field name="view_mode">list,kanban,form,calendar,activity</field>
+        <field name="search_view_id" ref="hr_holidays.hr_leave_view_search_manager"/>
+        <field name="view_id" ref="hr_holidays.hr_leave_view_tree"/>
+       <field name="context">{'search_default_mission_report': 1}</field>
+    </record>
+    <record id="hr_leave_action_action_approve_department_3" model="ir.actions.act_window">
+        <field name="name">All Time Off 3</field>
+        <field name="res_model">hr.leave</field>
+<!--        <field name="path">time-off-approval-3</field>-->
+        <field name="view_mode">list,kanban,form,calendar,activity</field>
+        <field name="search_view_id" ref="hr_holidays.hr_leave_view_search_manager"/>
+        <field name="view_id" ref="hr_holidays.hr_leave_view_tree"/>
+       <field name="context">{'search_default_mission_approval': 1}</field>
+    </record>
+    <record id="hr_leave_action_action_approve_department_4" model="ir.actions.act_window">
+        <field name="name">All Time Off 4</field>
+        <field name="res_model">hr.leave</field>
+<!--        <field name="path">time-off-approval-3</field>-->
+        <field name="view_mode">list,kanban,form,calendar,activity</field>
+        <field name="search_view_id" ref="hr_holidays.hr_leave_view_search_manager"/>
+        <field name="view_id" ref="hr_holidays.hr_leave_view_tree"/>
+       <field name="context">{'search_default_not_registered': 1}</field>
+    </record>
+
+    <record id="hr_holidays_dashboard_action" model="ir.actions.client">
+        <field name="path">time-off-dashboard</field>
+        <field name="name">HR Holidays Dashboard</field>
+        <field name="tag">hr_holidays_dashboard</field>
+    </record>
+
+
+    <menuitem
+        id="menu_open_department_leave_approve"
+        name="Time Off 2"
+        parent="hr_holidays.menu_hr_holidays_management"
+        action="hr_leave_action_action_approve_department_2"
+        sequence="5"/>
+
+    <menuitem
+        id="menu_open_department_leave_dashboard"
+        name="Leave Dashboard"
+        parent="hr_holidays.menu_hr_holidays_management"
+        action="hr_holidays_dashboard_action"
+        sequence="5"/>
 </odoo>

@@ -1,15 +1,9 @@
-
-from odoo import models, fields, api, _
-from odoo.exceptions import AccessError, UserError, ValidationError
-from collections import namedtuple, defaultdict
-from datetime import datetime, timedelta, time
-from odoo.addons.resource.models.utils import float_to_time, HOURS_PER_DAY
-from math import ceil
-from icecream import ic
+from odoo import models, fields, api
 
 
-class SdHrHolidaysMissionDetail(models.Model):
-    _name = "sd_hr_holidays.mission_detail"
+class SdHrHolidaysMissionReport(models.Model):
+    _name = "sd_hr_holidays.mission_report"
+    _description = "Mission Report"
     _inherit = ['mail.thread', 'mail.activity.mixin']
 
     leave = fields.Many2one('hr.leave', )
@@ -44,6 +38,3 @@ class SdHrHolidaysMissionDetail(models.Model):
                                    ('others', 'Others'), ], default='guest_house', required=True)
 
     description = fields.Text()
-
-
-
