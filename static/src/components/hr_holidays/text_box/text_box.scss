@@ -3,7 +3,17 @@
     }
 .text_box_100{
     height: 100px;
+    border-radius: 20px;
     }
+
 .text_box_100:hover{
     color: #ffac00;
+    }
+
+.text_box_150{
+    height: 150px;
+    border-radius: 20px;
+    }
+.text_box_150:hover{
+    color: #ffac00 !important;
     }

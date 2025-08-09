@@ -28,10 +28,11 @@ export class SdHrHolidaysDashboard extends Component {
 
         this.state = useState({
             texts: {
-                myActions: {name: 'Leave/Mission Approve', value: 0},
-                myReports: {name: 'Mission Reports', value: 0},
-                myApproves: {name: 'Report Approves', value: 0},
-                notRegistered: {name: 'Not Registered', value: 0},
+                myActions: {name: _t('Leave/Mission Approve'), value: 0},
+                missionValidation: {name: _t('Mission Validation'), value: 0},
+                myReports: {name: _t('Mission Reports'), value: 0},
+                myApproves: {name: _t('Report Approves'), value: 0},
+                notRegistered: {name: _t('Not Registered'), value: 0},
             },
         })
         this.orm = useService("orm")
@@ -62,6 +63,7 @@ export class SdHrHolidaysDashboard extends Component {
         this.state.texts['myReports'].value = getLeave.my_reports || 0
         this.state.texts['myApproves'].value = getLeave.my_approves || 0
         this.state.texts['notRegistered'].value = getLeave.not_registered || 0
+        this.state.texts['missionValidation'].value = getLeave.mission_validation || 0
 
     }
     onClick(param){
@@ -74,6 +76,8 @@ export class SdHrHolidaysDashboard extends Component {
             this.actionService.doAction("sd_hr_holidays.hr_leave_action_action_approve_department_3")
         } else if (param == 'not_registered'){
             this.actionService.doAction("sd_hr_holidays.hr_leave_action_action_approve_department_4")
+        } else if (param == 'mission_validation'){
+            this.actionService.doAction("sd_hr_holidays.hr_leave_action_action_approve_department_5")
         }
 //        this.actionService.doAction(
 //            {

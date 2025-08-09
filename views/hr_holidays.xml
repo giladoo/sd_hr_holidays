@@ -16,6 +16,7 @@
                     <field name="daily_mission_calendar" invisible="not daily_mission" />
 
                 </div>
+                <field name="daily_mission_validators" widget="many2many_avatar_user" invisible="not daily_mission"/>
                 <label for="hourly_mission" invisible="request_unit in ['day', 'half_day']"/>
                 <div class="o_row " invisible="request_unit in ['day', 'half_day']">
                     <field name="hourly_mission" />
@@ -54,7 +55,7 @@
             </xpath>
             <xpath expr="//field[@name='activity_exception_decoration']" position="before">
                 <field name="registered" widget="boolean_toggle" groups="hr_holidays.group_hr_holidays_manager"/>
-                <field name="report_state" widget="badge" invisible="report_state in ['empty']"
+                <field name="report_state" widget="badge" invisible="report_state in ['draft']"
                     decoration-warning="report_state == 'reported'"
                     decoration-success="report_state == 'approved'"
                 />
@@ -101,13 +102,19 @@
                         domain="[
                         ('holiday_status_id.daily_mission', '=', True),
                         ('state', '=', 'validate'),
-                        ('report_state', '=', 'empty'),
+                        ('report_state', '=', 'draft'),
                         ]"/>
                 <filter name="mission_approval" string="Mission Approval"
                         domain="[
                         ('holiday_status_id.daily_mission', '=', True),
                         ('state', '=', 'validate'),
                         ('report_state', '=', 'reported'),
+                        ]"/>
+                <filter name="mission_validation" string="Mission Validation"
+                        domain="[
+                        ('holiday_status_id.daily_mission', '=', True),
+                        ('state', '=', 'validate'),
+                        ('report_state', '=', 'draft'),
                         ]"/>
 
             </xpath>
@@ -184,20 +191,34 @@
                         </div>
 
                     </div>
-                    <div class="row col-12 mx-0 mt-2 px-0 p-2 border-top " invisible="state != 'validate'">
+                    <field name="daily_mission_validators" invisible="1"/>
+<!--                    <field name="report_state" invisible="1"/>-->
+                    <div class="my-2 row" invisible="state !='validate' or uid not in daily_mission_validators">
+
+                        <field name="mission_validate" invisible="1"/>
+                        <button name="mission_validation" type="object" invisible="mission_validate == 'validate'"
+                                context="{'mission_validate_btn': 'validate'}"
+                                string="Validate" class="col-2 mx-1 btn btn-success "/>
+                        <div class="col bg-success-light p-1 text-center rounded-3" invisible="mission_validate != 'validate'">Mission is validated</div>
+                        <div class="col bg-danger-light p-1 text-center rounded-3" invisible="mission_validate != 'reject'">Mission is rejected</div>
+                        <button name="mission_validation" type="object" invisible="mission_validate == 'reject' or report_state != 'draft'"
+                                context="{'mission_validate_btn': 'reject'}"
+                                string="Reject" class="col-2 mx-1 btn btn-outline-danger"/>
+                    </div>
+                    <div class="row col-12 mx-0 mt-2 px-0 p-2 border-top " invisible="state != 'validate' or mission_validate != 'validate'">
                         <div class="o_row col-1 px-1 ">
                             <button name="daily_mission_report" type="object"
                                 string="Report" class="btn btn-secondary w-25"/>
                         </div>
                         <div class="col o_row mx-1">
                             <button string="Reported" type="object" name="report_approval" class="btn btn-info"
-                                    invisible="report_state != 'empty'"
+                                    invisible="report_state != 'draft'"
                                     context="{'approval_btn': 'reported'}"/>
                             <button string="Approve" type="object" name="report_approval" class="btn btn-success"
                                     invisible="report_state != 'reported'"
                                     context="{'approval_btn': 'approved'}"/>
                             <button string="Return" type="object" name="report_approval" class="btn btn-warning"
-                                    invisible="report_state in ['empty', 'registered'] "
+                                    invisible="report_state in ['draft', 'registered'] "
                                     context="{'approval_btn': 'return'}"/>
                             <button string="Return" type="object" name="report_approval" class="btn btn-warning"
                                     invisible="report_state not in ['registered'] "
@@ -259,6 +280,15 @@
         <field name="search_view_id" ref="hr_holidays.hr_leave_view_search_manager"/>
         <field name="view_id" ref="hr_holidays.hr_leave_view_tree"/>
        <field name="context">{'search_default_not_registered': 1}</field>
+    </record>
+    <record id="hr_leave_action_action_approve_department_5" model="ir.actions.act_window">
+        <field name="name">All Time Off 4</field>
+        <field name="res_model">hr.leave</field>
+<!--        <field name="path">time-off-approval-3</field>-->
+        <field name="view_mode">list,kanban,form,calendar,activity</field>
+        <field name="search_view_id" ref="hr_holidays.hr_leave_view_search_manager"/>
+        <field name="view_id" ref="hr_holidays.hr_leave_view_tree"/>
+       <field name="context">{'search_default_mission_validation': 1}</field>
     </record>
 
     <record id="hr_holidays_dashboard_action" model="ir.actions.client">

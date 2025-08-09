@@ -2,15 +2,29 @@
 <templates id="template" xml:space="preserve">
 
     <t t-name="holidays_dashboard_template">
-        <div class="container">
+        <div class="container-lg">
+        <div class="row">
 
-        <div class="h1">HR LEAVES</div>
-        <div class="fa fa-refresh btn" t-on-click="this.refresh_btn"></div>
-        <div class="row mx-5">
-            <TextBox name="state.texts.myActions.name" value="state.texts.myActions.value" onClick="()=>onClick('leave_approve')"/>
-            <TextBox name="state.texts.myReports.name" value="state.texts.myReports.value" onClick="()=>onClick('mission_report')"/>
-            <TextBox name="state.texts.myApproves.name" value="state.texts.myApproves.value" onClick="()=>onClick('report_approve')"/>
-            <TextBox name="state.texts.notRegistered.name" value="state.texts.notRegistered.value" onClick="()=>onClick('not_registered')"/>
+        </div>
+        <div class="h1 my-3">
+            <span class="fa fa-refresh btn m-3" t-on-click="this.refresh_btn"></span>
+            Leave/Mission Approve
+        </div>
+        <div class="row mx-md-5">
+            <TextBox name="state.texts.myActions.name" value="state.texts.myActions.value"
+                     onClick="()=>onClick('leave_approve')" icon="'fa fa-plane text-primary'"/>
+
+            <TextBox name="state.texts.missionValidation.name" value="state.texts.missionValidation.value"
+                     onClick="()=>onClick('mission_validation')" icon="'fa fa-thumbs-o-up text-primary'"/>
+
+            <TextBox name="state.texts.myReports.name" value="state.texts.myReports.value"
+                     onClick="()=>onClick('mission_report')" icon="'fa fa-file-text  text-primary'"/>
+
+            <TextBox name="state.texts.myApproves.name" value="state.texts.myApproves.value"
+                     onClick="()=>onClick('report_approve')" icon="'fa fa-file-text-o text-primary'"/>
+
+            <TextBox name="state.texts.notRegistered.name" value="state.texts.notRegistered.value"
+                     onClick="()=>onClick('not_registered')" icon="'	fa fa-check-square-o text-primary'"/>
 
         </div>
         </div>

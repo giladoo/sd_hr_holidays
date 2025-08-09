@@ -11,14 +11,19 @@ from icecream import ic
 class SdHrHolidaysLeave(models.Model):
     _inherit = "hr.leave"
 
-    report_state = fields.Selection([('empty', 'Empty'),
+    report_state = fields.Selection([('draft', 'Draft'),
                                      ('reported', 'Reported'),
                                      ('approved', 'Approved'),
                                      ('registered', 'Registered'),
-                                     ], default='empty', required=True, tracking=True)
+                                     ], default='draft', required=True, tracking=True)
+    mission_validate = fields.Selection([('draft', 'Draft'),
+                                     ('validate', 'validate'),
+                                     ('reject', 'Reject'),
+                                     ], default='draft', required=True, tracking=True)
 
     registered = fields.Boolean()
     daily_mission = fields.Boolean(related='holiday_status_id.daily_mission')
+    daily_mission_validators = fields.Many2many(related='holiday_status_id.daily_mission_validators')
     mission_detail = fields.Many2one('sd_hr_holidays.mission_detail')
     project_name = fields.Many2one(related='mission_detail.project_name')
     departure_city = fields.Char(related='mission_detail.departure_city')
@@ -46,6 +51,15 @@ class SdHrHolidaysLeave(models.Model):
             vals['report_state'] = 'registered'
         return super().write(vals)
 
+    def mission_validation(self):
+        if not self.env.uid in self.daily_mission_validators.ids:
+            return
+
+        mission_validate_btn = self.env.context.get('mission_validate_btn', '')
+        if self.holiday_status_id.daily_mission and self.state == 'validate' and mission_validate_btn == 'validate':
+            self.sudo().write({'mission_validate': 'validate'})
+        elif  mission_validate_btn == 'reject' and self.report_state == 'draft' :
+            self.sudo().write({'mission_validate': 'reject'})
 
     def report_approval(self,):
         user = self.env.user
@@ -74,11 +88,11 @@ class SdHrHolidaysLeave(models.Model):
                 self.sudo().write({'report_state': 'reported'})
 
             elif self.report_state == 'reported':
-                # self.report_state = 'empty'
-                self.sudo().write({'report_state': 'empty'})
+                # self.report_state = 'draft'
+                self.sudo().write({'report_state': 'draft'})
 
             elif self.report_state == 'registered' and hr_holiday_user or super_user:
-                # self.report_state = 'empty'
+                # self.report_state = 'draft'
                 self.sudo().write({'report_state': 'approved'})
 
 
@@ -253,7 +267,7 @@ class SdHrHolidaysLeave(models.Model):
             if not self.mission_report:
                 self.sudo().write({'mission_report': mission_report_model.sudo().create({'leave': self.id,
                                                                                          'project_name': self.project_name.id})})
-            if self.report_state != 'empty':
+            if self.report_state != 'draft':
                 view_id = self.env.ref('sd_hr_holidays.mission_report_form_no_edit').id
             else:
                 view_id = self.env.ref('sd_hr_holidays.mission_report_form').id
@@ -287,10 +301,11 @@ class SdHrHolidaysLeave(models.Model):
                                  ("state", "=", "validate1")
                           ]
         my_actions = self.search(domain)
+
         domain = [
             ("employee_id.user_id", "=", uid),
             ("state", "=", "validate"),
-            ("report_state", "=", "empty"),
+            ("report_state", "=", "draft"),
         ]
         my_reports = self.search(domain)
 
@@ -312,10 +327,20 @@ class SdHrHolidaysLeave(models.Model):
         ]
         not_registered= self.search(domain)
 
+        domain = [
+
+            ("state", "=", "validate"),
+            ("report_state", "=", "draft"),
+            ("daily_mission_validators", "in", self.env.user.id),
+        ]
+        mission_validation= self.sudo().search(domain)
+
+
         return json.dumps({'my_actions': len(my_actions),
                            'my_reports': len(my_reports),
                            'my_approves': len(my_approves),
                            'not_registered': len(not_registered),
+                           'mission_validation': len(mission_validation),
                            })
 
 class SdHrHolidaysLeave(models.Model):
@@ -326,6 +351,10 @@ class SdHrHolidaysLeave(models.Model):
 
     daily_mission = fields.Boolean()
     daily_mission_calendar = fields.Many2one('resource.calendar')
+    daily_mission_validators = fields.Many2many('res.users', 'daily_mission_validators')
+
+
+
 
 
 

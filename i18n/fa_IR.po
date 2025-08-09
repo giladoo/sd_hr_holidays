@@ -1,0 +1,748 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sd_hr_holidays
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-09 05:15+0000\n"
+"PO-Revision-Date: 2025-08-09 08:53+0330\n"
+"Last-Translator: Arash Homayounfar <homayounfar@msn.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: fa\n"
+"X-Generator: Poedit 2.2\n"
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_hourly_leave__message_needaction
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_detail__message_needaction
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_report__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_hourly_leave__activity_ids
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_detail__activity_ids
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_report__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_hourly_leave__activity_exception_decoration
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_detail__activity_exception_decoration
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_report__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_hourly_leave__activity_state
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_detail__activity_state
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_report__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_hourly_leave__activity_type_icon
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_detail__activity_type_icon
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_report__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields.selection,name:sd_hr_holidays.selection__sd_hr_holidays_mission_detail__departure_type__airplane
+#: model:ir.model.fields.selection,name:sd_hr_holidays.selection__sd_hr_holidays_mission_detail__return_type__airplane
+#: model:ir.model.fields.selection,name:sd_hr_holidays.selection__sd_hr_holidays_mission_report__departure_type__airplane
+#: model:ir.model.fields.selection,name:sd_hr_holidays.selection__sd_hr_holidays_mission_report__return_type__airplane
+msgid "Airplane"
+msgstr "هواپیما"
+
+#. module: sd_hr_holidays
+#: model:ir.actions.act_window,name:sd_hr_holidays.hr_leave_action_action_approve_department_2
+msgid "All Time Off 2"
+msgstr ""
+
+#. module: sd_hr_holidays
+#: model:ir.actions.act_window,name:sd_hr_holidays.hr_leave_action_action_approve_department_3
+msgid "All Time Off 3"
+msgstr ""
+
+#. module: sd_hr_holidays
+#: model:ir.actions.act_window,name:sd_hr_holidays.hr_leave_action_action_approve_department_4
+msgid "All Time Off 4"
+msgstr ""
+
+#. module: sd_hr_holidays
+#: model_terms:ir.ui.view,arch_db:sd_hr_holidays.hr_leave_view_form_inherit
+msgid "Approve"
+msgstr "تایید"
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields.selection,name:sd_hr_holidays.selection__hr_leave__report_state__approved
+#: model:ir.model.fields.selection,name:sd_hr_holidays.selection__sd_hr_holidays_hourly_leave__state__approved
+msgid "Approved"
+msgstr "تایید شده"
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_hourly_leave__message_attachment_count
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_detail__message_attachment_count
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_report__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields.selection,name:sd_hr_holidays.selection__sd_hr_holidays_mission_detail__departure_type__bus
+#: model:ir.model.fields.selection,name:sd_hr_holidays.selection__sd_hr_holidays_mission_detail__return_type__bus
+#: model:ir.model.fields.selection,name:sd_hr_holidays.selection__sd_hr_holidays_mission_report__departure_type__bus
+#: model:ir.model.fields.selection,name:sd_hr_holidays.selection__sd_hr_holidays_mission_report__return_type__bus
+msgid "Bus"
+msgstr "اتوبوس"
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields.selection,name:sd_hr_holidays.selection__sd_hr_holidays_mission_detail__residence__camp
+#: model:ir.model.fields.selection,name:sd_hr_holidays.selection__sd_hr_holidays_mission_report__residence__camp
+msgid "Camp"
+msgstr "کمپ"
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields.selection,name:sd_hr_holidays.selection__sd_hr_holidays_hourly_leave__state__canceled
+msgid "Canceled"
+msgstr ""
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields.selection,name:sd_hr_holidays.selection__sd_hr_holidays_mission_detail__departure_type__company_car
+#: model:ir.model.fields.selection,name:sd_hr_holidays.selection__sd_hr_holidays_mission_detail__return_type__company_car
+#: model:ir.model.fields.selection,name:sd_hr_holidays.selection__sd_hr_holidays_mission_report__departure_type__company_car
+#: model:ir.model.fields.selection,name:sd_hr_holidays.selection__sd_hr_holidays_mission_report__return_type__company_car
+msgid "Company Car"
+msgstr "خودرو شرکت"
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_hourly_leave__create_uid
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_detail__create_uid
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_report__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_hourly_leave__create_date
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_detail__create_date
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_report__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_hr_employee__sd_daily_approvers
+msgid "Daily Approvers"
+msgstr ""
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_hr_leave__daily_mission
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_hr_leave_type__daily_mission
+msgid "Daily Mission"
+msgstr ""
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_hr_leave_type__daily_mission_calendar
+msgid "Daily Mission Calendar"
+msgstr ""
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_hourly_leave__department_id
+msgid "Department"
+msgstr "واحد سازمانی"
+
+#. module: sd_hr_holidays
+#: model_terms:ir.ui.view,arch_db:sd_hr_holidays.hr_leave_view_form_inherit
+#: model_terms:ir.ui.view,arch_db:sd_hr_holidays.mission_detail_form
+#: model_terms:ir.ui.view,arch_db:sd_hr_holidays.mission_report_form
+msgid "Departure"
+msgstr "رفت"
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_hr_leave__departure_city
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_detail__departure_city
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_report__departure_city
+msgid "Departure City"
+msgstr ""
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_hr_leave__departure_time
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_detail__departure_time
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_report__departure_time
+msgid "Departure Time"
+msgstr "زمان رفت"
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_hr_leave__departure_type
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_detail__departure_type
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_report__departure_type
+msgid "Departure Type"
+msgstr "وسیله رفت"
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_hr_leave__mission_description
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_detail__description
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_report__description
+msgid "Description"
+msgstr "توضیحات"
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_hourly_leave__display_name
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_detail__display_name
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_report__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: sd_hr_holidays
+#: model:ir.model,name:sd_hr_holidays.model_hr_employee
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_hourly_leave__employee_id
+msgid "Employee"
+msgstr "کارمند"
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields.selection,name:sd_hr_holidays.selection__hr_leave__report_state__empty
+msgid "Empty"
+msgstr ""
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields.selection,name:sd_hr_holidays.selection__sd_hr_holidays_mission_detail__departure_time__evening
+#: model:ir.model.fields.selection,name:sd_hr_holidays.selection__sd_hr_holidays_mission_detail__return_time__evening
+#: model:ir.model.fields.selection,name:sd_hr_holidays.selection__sd_hr_holidays_mission_report__departure_time__evening
+#: model:ir.model.fields.selection,name:sd_hr_holidays.selection__sd_hr_holidays_mission_report__return_time__evening
+msgid "Evening"
+msgstr "شب"
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_hourly_leave__message_follower_ids
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_detail__message_follower_ids
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_report__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_hourly_leave__message_partner_ids
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_detail__message_partner_ids
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_report__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields,help:sd_hr_holidays.field_sd_hr_holidays_hourly_leave__activity_type_icon
+#: model:ir.model.fields,help:sd_hr_holidays.field_sd_hr_holidays_mission_detail__activity_type_icon
+#: model:ir.model.fields,help:sd_hr_holidays.field_sd_hr_holidays_mission_report__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields.selection,name:sd_hr_holidays.selection__sd_hr_holidays_mission_detail__residence__guest_house
+#: model:ir.model.fields.selection,name:sd_hr_holidays.selection__sd_hr_holidays_mission_report__residence__guest_house
+msgid "Guest House"
+msgstr "میهمان سرا"
+
+#. module: sd_hr_holidays
+#: model:ir.actions.client,name:sd_hr_holidays.hr_holidays_dashboard_action
+msgid "HR Holidays Dashboard"
+msgstr "داشبورد مرخصی/ماموریت"
+
+#. module: sd_hr_holidays
+#. odoo-javascript
+#: code:addons/sd_hr_holidays/static/src/components/hr_holidays/hr_holidays_dashboard.xml:0
+msgid "HR LEAVES"
+msgstr ""
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_hourly_leave__has_message
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_detail__has_message
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_report__has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields.selection,name:sd_hr_holidays.selection__sd_hr_holidays_hourly_leave__state__hold
+msgid "Hold"
+msgstr ""
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields.selection,name:sd_hr_holidays.selection__sd_hr_holidays_mission_detail__residence__hotel
+#: model:ir.model.fields.selection,name:sd_hr_holidays.selection__sd_hr_holidays_mission_report__residence__hotel
+msgid "Hotel"
+msgstr "هتل"
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_hourly_leave__request_hour_from
+msgid "Hour from"
+msgstr ""
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_hourly_leave__request_hour_to
+msgid "Hour to"
+msgstr ""
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_hr_employee__sd_hourly_approvers
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_hourly_leave__approvers
+msgid "Hourly Approvers"
+msgstr ""
+
+#. module: sd_hr_holidays
+#: model:ir.actions.act_window,name:sd_hr_holidays.hourly_leave_action
+#: model:ir.ui.menu,name:sd_hr_holidays.hourly_leave
+msgid "Hourly Leave"
+msgstr ""
+
+#. module: sd_hr_holidays
+#: model:ir.model,name:sd_hr_holidays.model_sd_hr_holidays_hourly_leave
+msgid "Hourly Leaves"
+msgstr ""
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_hr_leave_type__hourly_mission
+msgid "Hourly Mission"
+msgstr "ماموریت ساعتی"
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_hr_leave_type__hourly_mission_calendar
+msgid "Hourly Mission Calendar"
+msgstr "تقویم ماموریت ساعتی"
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_hourly_leave__id
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_detail__id
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_report__id
+msgid "ID"
+msgstr ""
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_hourly_leave__activity_exception_icon
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_detail__activity_exception_icon
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_report__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields,help:sd_hr_holidays.field_sd_hr_holidays_hourly_leave__activity_exception_icon
+#: model:ir.model.fields,help:sd_hr_holidays.field_sd_hr_holidays_mission_detail__activity_exception_icon
+#: model:ir.model.fields,help:sd_hr_holidays.field_sd_hr_holidays_mission_report__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields,help:sd_hr_holidays.field_sd_hr_holidays_hourly_leave__message_needaction
+#: model:ir.model.fields,help:sd_hr_holidays.field_sd_hr_holidays_mission_detail__message_needaction
+#: model:ir.model.fields,help:sd_hr_holidays.field_sd_hr_holidays_mission_report__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields,help:sd_hr_holidays.field_sd_hr_holidays_hourly_leave__message_has_error
+#: model:ir.model.fields,help:sd_hr_holidays.field_sd_hr_holidays_hourly_leave__message_has_sms_error
+#: model:ir.model.fields,help:sd_hr_holidays.field_sd_hr_holidays_mission_detail__message_has_error
+#: model:ir.model.fields,help:sd_hr_holidays.field_sd_hr_holidays_mission_detail__message_has_sms_error
+#: model:ir.model.fields,help:sd_hr_holidays.field_sd_hr_holidays_mission_report__message_has_error
+#: model:ir.model.fields,help:sd_hr_holidays.field_sd_hr_holidays_mission_report__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields.selection,name:sd_hr_holidays.selection__sd_hr_holidays_mission_detail__departure_type__internet_car
+#: model:ir.model.fields.selection,name:sd_hr_holidays.selection__sd_hr_holidays_mission_detail__return_type__internet_car
+#: model:ir.model.fields.selection,name:sd_hr_holidays.selection__sd_hr_holidays_mission_report__departure_type__internet_car
+#: model:ir.model.fields.selection,name:sd_hr_holidays.selection__sd_hr_holidays_mission_report__return_type__internet_car
+msgid "Internet Car"
+msgstr ""
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_hourly_leave__message_is_follower
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_detail__message_is_follower
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_report__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_hourly_leave__write_uid
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_detail__write_uid
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_report__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_hourly_leave__write_date
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_detail__write_date
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_report__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: sd_hr_holidays
+#: model_terms:ir.ui.view,arch_db:sd_hr_holidays.view_hr_holidays_filter_inherit
+msgid "Last Updates"
+msgstr ""
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_detail__leave
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_report__leave
+msgid "Leave"
+msgstr "مرخصی/ماموریت"
+
+#. module: sd_hr_holidays
+#: model:ir.ui.menu,name:sd_hr_holidays.menu_open_department_leave_dashboard
+msgid "Leave Dashboard"
+msgstr ""
+
+#. module: sd_hr_holidays
+#. odoo-javascript
+#: code:addons/sd_hr_holidays/static/src/components/hr_holidays/hr_holidays_dashboard.js:0
+msgid "Leave/Mission Approve"
+msgstr "تایید مرخصی/ماموریت"
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_hourly_leave__message_has_error
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_detail__message_has_error
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_report__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_hourly_leave__message_ids
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_detail__message_ids
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_report__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: sd_hr_holidays
+#: model_terms:ir.ui.view,arch_db:sd_hr_holidays.view_hr_holidays_filter_inherit
+msgid "Mission Approval"
+msgstr "تایید ماموریت"
+
+#. module: sd_hr_holidays
+#: model:ir.actions.act_window,name:sd_hr_holidays.mission_detail_action
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_hr_leave__mission_detail
+#: model:ir.ui.menu,name:sd_hr_holidays.mission_detail
+msgid "Mission Detail"
+msgstr "جزئیات ماموریت"
+
+#. module: sd_hr_holidays
+#: model:ir.actions.act_window,name:sd_hr_holidays.mission_report_action
+#: model:ir.model,name:sd_hr_holidays.model_sd_hr_holidays_mission_report
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_hr_leave__mission_report
+#: model:ir.ui.menu,name:sd_hr_holidays.mission_report
+#: model_terms:ir.ui.view,arch_db:sd_hr_holidays.view_hr_holidays_filter_inherit
+msgid "Mission Report"
+msgstr "گزارش ماموریت"
+
+#. module: sd_hr_holidays
+#. odoo-javascript
+#: code:addons/sd_hr_holidays/static/src/components/hr_holidays/hr_holidays_dashboard.js:0
+msgid "Mission Reports"
+msgstr "گزارش ماموریت"
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields.selection,name:sd_hr_holidays.selection__sd_hr_holidays_mission_detail__departure_time__morning
+#: model:ir.model.fields.selection,name:sd_hr_holidays.selection__sd_hr_holidays_mission_detail__return_time__morning
+#: model:ir.model.fields.selection,name:sd_hr_holidays.selection__sd_hr_holidays_mission_report__departure_time__morning
+#: model:ir.model.fields.selection,name:sd_hr_holidays.selection__sd_hr_holidays_mission_report__return_time__morning
+msgid "Morning"
+msgstr "صبح"
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_hourly_leave__my_activity_date_deadline
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_detail__my_activity_date_deadline
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_report__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields.selection,name:sd_hr_holidays.selection__sd_hr_holidays_hourly_leave__state__new
+msgid "New"
+msgstr ""
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_hourly_leave__activity_calendar_event_id
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_detail__activity_calendar_event_id
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_report__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr ""
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_hourly_leave__activity_date_deadline
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_detail__activity_date_deadline
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_report__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_hourly_leave__activity_summary
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_detail__activity_summary
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_report__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_hourly_leave__activity_type_id
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_detail__activity_type_id
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_report__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields.selection,name:sd_hr_holidays.selection__sd_hr_holidays_mission_detail__departure_time__noon
+#: model:ir.model.fields.selection,name:sd_hr_holidays.selection__sd_hr_holidays_mission_detail__return_time__noon
+#: model:ir.model.fields.selection,name:sd_hr_holidays.selection__sd_hr_holidays_mission_report__departure_time__noon
+#: model:ir.model.fields.selection,name:sd_hr_holidays.selection__sd_hr_holidays_mission_report__return_time__noon
+msgid "Noon"
+msgstr "ظهر"
+
+#. module: sd_hr_holidays
+#. odoo-javascript
+#: code:addons/sd_hr_holidays/static/src/components/hr_holidays/hr_holidays_dashboard.js:0
+#: model_terms:ir.ui.view,arch_db:sd_hr_holidays.view_hr_holidays_filter_inherit
+msgid "Not Registered"
+msgstr "ثبت نشده"
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_hourly_leave__message_needaction_counter
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_detail__message_needaction_counter
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_report__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_hourly_leave__message_has_error_counter
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_detail__message_has_error_counter
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_report__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields,help:sd_hr_holidays.field_sd_hr_holidays_hourly_leave__message_needaction_counter
+#: model:ir.model.fields,help:sd_hr_holidays.field_sd_hr_holidays_mission_detail__message_needaction_counter
+#: model:ir.model.fields,help:sd_hr_holidays.field_sd_hr_holidays_mission_report__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr ""
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields,help:sd_hr_holidays.field_sd_hr_holidays_hourly_leave__message_has_error_counter
+#: model:ir.model.fields,help:sd_hr_holidays.field_sd_hr_holidays_mission_detail__message_has_error_counter
+#: model:ir.model.fields,help:sd_hr_holidays.field_sd_hr_holidays_mission_report__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields.selection,name:sd_hr_holidays.selection__sd_hr_holidays_mission_detail__residence__others
+#: model:ir.model.fields.selection,name:sd_hr_holidays.selection__sd_hr_holidays_mission_report__residence__others
+msgid "Others"
+msgstr "غیره"
+
+#. module: sd_hr_holidays
+#: model_terms:ir.ui.view,arch_db:sd_hr_holidays.hr_leave_view_form_inherit
+msgid "Project"
+msgstr "پروژه"
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_hr_leave__project_name
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_detail__project_name
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_report__project_name
+msgid "Project Name"
+msgstr "نام پروژه"
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields.selection,name:sd_hr_holidays.selection__sd_hr_holidays_mission_detail__departure_type__rail
+#: model:ir.model.fields.selection,name:sd_hr_holidays.selection__sd_hr_holidays_mission_detail__return_type__rail
+#: model:ir.model.fields.selection,name:sd_hr_holidays.selection__sd_hr_holidays_mission_report__departure_type__rail
+#: model:ir.model.fields.selection,name:sd_hr_holidays.selection__sd_hr_holidays_mission_report__return_type__rail
+msgid "Rail"
+msgstr "قطار"
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_hourly_leave__rating_ids
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_detail__rating_ids
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_report__rating_ids
+msgid "Ratings"
+msgstr ""
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_hr_leave__registered
+#: model:ir.model.fields.selection,name:sd_hr_holidays.selection__hr_leave__report_state__registered
+#: model:ir.model.fields.selection,name:sd_hr_holidays.selection__sd_hr_holidays_hourly_leave__state__registered
+msgid "Registered"
+msgstr "ثبت شده"
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields.selection,name:sd_hr_holidays.selection__sd_hr_holidays_mission_detail__departure_type__rental_car
+#: model:ir.model.fields.selection,name:sd_hr_holidays.selection__sd_hr_holidays_mission_detail__return_type__rental_car
+#: model:ir.model.fields.selection,name:sd_hr_holidays.selection__sd_hr_holidays_mission_report__departure_type__rental_car
+#: model:ir.model.fields.selection,name:sd_hr_holidays.selection__sd_hr_holidays_mission_report__return_type__rental_car
+msgid "Rental Car"
+msgstr "خودرو اجاره ای"
+
+#. module: sd_hr_holidays
+#: model_terms:ir.ui.view,arch_db:sd_hr_holidays.hr_leave_view_form_inherit
+msgid "Report"
+msgstr "گزارش"
+
+#. module: sd_hr_holidays
+#: model_terms:ir.ui.view,arch_db:sd_hr_holidays.view_hr_holidays_filter_inherit
+msgid "Report Approved"
+msgstr "گزارش تایید شده"
+
+#. module: sd_hr_holidays
+#. odoo-javascript
+#: code:addons/sd_hr_holidays/static/src/components/hr_holidays/hr_holidays_dashboard.js:0
+msgid "Report Approves"
+msgstr "تایید گزارش"
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_hr_leave__report_state
+msgid "Report State"
+msgstr "وضعیت گزارش"
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields.selection,name:sd_hr_holidays.selection__hr_leave__report_state__reported
+#: model_terms:ir.ui.view,arch_db:sd_hr_holidays.hr_leave_view_form_inherit
+msgid "Reported"
+msgstr "گزارش شده"
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_hourly_leave__request_date
+msgid "Request Date"
+msgstr "تاریخ درخواست"
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_hourly_leave__request_date_to
+msgid "Request End Date"
+msgstr "تاریخ پایان درخواست"
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_hourly_leave__request_date_from
+msgid "Request Start Date"
+msgstr "تاریخ شروع درخواست"
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_hr_leave__residence
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_detail__residence
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_report__residence
+#: model_terms:ir.ui.view,arch_db:sd_hr_holidays.mission_detail_form
+#: model_terms:ir.ui.view,arch_db:sd_hr_holidays.mission_report_form
+msgid "Residence"
+msgstr "محل اقامت"
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_hourly_leave__activity_user_id
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_detail__activity_user_id
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_report__activity_user_id
+msgid "Responsible User"
+msgstr "کاربر مسئول"
+
+#. module: sd_hr_holidays
+#: model_terms:ir.ui.view,arch_db:sd_hr_holidays.hr_leave_view_form_inherit
+#: model_terms:ir.ui.view,arch_db:sd_hr_holidays.mission_detail_form
+#: model_terms:ir.ui.view,arch_db:sd_hr_holidays.mission_report_form
+msgid "Return"
+msgstr "بازگشت"
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_hr_leave__return_city
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_detail__return_city
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_report__return_city
+msgid "Return City"
+msgstr "شهر بازگشت"
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_hr_leave__return_time
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_detail__return_time
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_report__return_time
+msgid "Return Time"
+msgstr "زمان برگشت"
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_hr_leave__return_type
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_detail__return_type
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_report__return_type
+msgid "Return Type"
+msgstr "وسیله برگشت"
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_hourly_leave__message_has_sms_error
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_detail__message_has_sms_error
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_report__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_hourly_leave__state
+msgid "State"
+msgstr "وضعیت"
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields,help:sd_hr_holidays.field_sd_hr_holidays_hourly_leave__activity_state
+#: model:ir.model.fields,help:sd_hr_holidays.field_sd_hr_holidays_mission_detail__activity_state
+#: model:ir.model.fields,help:sd_hr_holidays.field_sd_hr_holidays_mission_report__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: sd_hr_holidays
+#. odoo-python
+#: code:addons/sd_hr_holidays/models/hr_leave.py:0
+msgid ""
+"The following employees are not supposed to work during that period:\n"
+" %s"
+msgstr ""
+
+#. module: sd_hr_holidays
+#: model:ir.model,name:sd_hr_holidays.model_hr_leave
+msgid "Time Off"
+msgstr "مرخصی"
+
+#. module: sd_hr_holidays
+#: model:ir.ui.menu,name:sd_hr_holidays.menu_open_department_leave_approve
+msgid "Time Off 2"
+msgstr ""
+
+#. module: sd_hr_holidays
+#: model:ir.model,name:sd_hr_holidays.model_hr_leave_type
+msgid "Time Off Type"
+msgstr "نوع مرخصی"
+
+#. module: sd_hr_holidays
+#. odoo-python
+#: code:addons/sd_hr_holidays/models/hr_leave.py:0
+msgid "Time off request must be confirmed in order to approve it."
+msgstr ""
+
+#. module: sd_hr_holidays
+#: model_terms:ir.ui.view,arch_db:sd_hr_holidays.hr_leave_view_form_inherit
+msgid "Travel"
+msgstr "مسافرت"
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields,help:sd_hr_holidays.field_sd_hr_holidays_hourly_leave__activity_exception_decoration
+#: model:ir.model.fields,help:sd_hr_holidays.field_sd_hr_holidays_mission_detail__activity_exception_decoration
+#: model:ir.model.fields,help:sd_hr_holidays.field_sd_hr_holidays_mission_report__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_hourly_leave__website_message_ids
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_detail__website_message_ids
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_report__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields,help:sd_hr_holidays.field_sd_hr_holidays_hourly_leave__website_message_ids
+#: model:ir.model.fields,help:sd_hr_holidays.field_sd_hr_holidays_mission_detail__website_message_ids
+#: model:ir.model.fields,help:sd_hr_holidays.field_sd_hr_holidays_mission_report__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: sd_hr_holidays
+#: model:ir.model,name:sd_hr_holidays.model_sd_hr_holidays_mission_detail
+msgid "sd_hr_holidays.mission_detail"
+msgstr ""
