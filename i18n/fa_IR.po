@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-10 06:37+0000\n"
-"PO-Revision-Date: 2025-08-10 10:30+0330\n"
+"POT-Creation-Date: 2025-08-10 08:22+0000\n"
+"PO-Revision-Date: 2025-08-10 11:57+0330\n"
 "Last-Translator: Arash Homayounfar <homayounfar@msn.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -138,24 +138,24 @@ msgstr ""
 #. module: sd_hr_holidays
 #: model:ir.model.fields,field_description:sd_hr_holidays.field_hr_employee__sd_daily_approvers
 msgid "Daily Approvers"
-msgstr ""
+msgstr "تایید کنندگان روزانه"
 
 #. module: sd_hr_holidays
 #: model:ir.model.fields,field_description:sd_hr_holidays.field_hr_leave__daily_mission
 #: model:ir.model.fields,field_description:sd_hr_holidays.field_hr_leave_type__daily_mission
 msgid "Daily Mission"
-msgstr ""
+msgstr "ماموریت روزانه"
 
 #. module: sd_hr_holidays
 #: model:ir.model.fields,field_description:sd_hr_holidays.field_hr_leave_type__daily_mission_calendar
 msgid "Daily Mission Calendar"
-msgstr ""
+msgstr "تقویم ماموریت روزانه"
 
 #. module: sd_hr_holidays
 #: model:ir.model.fields,field_description:sd_hr_holidays.field_hr_leave__daily_mission_validators
 #: model:ir.model.fields,field_description:sd_hr_holidays.field_hr_leave_type__daily_mission_validators
 msgid "Daily Mission Validators"
-msgstr ""
+msgstr "تایید کنندگان ماموریت روزانه"
 
 #. module: sd_hr_holidays
 #: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_hourly_leave__department_id
@@ -174,7 +174,7 @@ msgstr "رفت"
 #: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_detail__departure_city
 #: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_report__departure_city
 msgid "Departure City"
-msgstr ""
+msgstr "شهر مبدا"
 
 #. module: sd_hr_holidays
 #: model:ir.model.fields,field_description:sd_hr_holidays.field_hr_leave__departure_time
@@ -208,7 +208,7 @@ msgstr ""
 #: model:ir.model.fields.selection,name:sd_hr_holidays.selection__hr_leave__mission_validate__draft
 #: model:ir.model.fields.selection,name:sd_hr_holidays.selection__hr_leave__report_state__draft
 msgid "Draft"
-msgstr ""
+msgstr "پیش نویس"
 
 #. module: sd_hr_holidays
 #: model:ir.model,name:sd_hr_holidays.model_hr_employee
@@ -252,11 +252,6 @@ msgid "Guest House"
 msgstr "میهمان سرا"
 
 #. module: sd_hr_holidays
-#: model:ir.actions.client,name:sd_hr_holidays.hr_holidays_dashboard_action
-msgid "HR Holidays Dashboard"
-msgstr "داشبورد مرخصی/ماموریت"
-
-#. module: sd_hr_holidays
 #: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_hourly_leave__has_message
 #: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_detail__has_message
 #: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_report__has_message
@@ -266,7 +261,7 @@ msgstr ""
 #. module: sd_hr_holidays
 #: model:ir.model.fields.selection,name:sd_hr_holidays.selection__sd_hr_holidays_hourly_leave__state__hold
 msgid "Hold"
-msgstr ""
+msgstr "متوقف"
 
 #. module: sd_hr_holidays
 #: model:ir.model.fields.selection,name:sd_hr_holidays.selection__sd_hr_holidays_mission_detail__residence__hotel
@@ -288,18 +283,18 @@ msgstr ""
 #: model:ir.model.fields,field_description:sd_hr_holidays.field_hr_employee__sd_hourly_approvers
 #: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_hourly_leave__approvers
 msgid "Hourly Approvers"
-msgstr ""
+msgstr "تایید کنندگان ساعتی"
 
 #. module: sd_hr_holidays
 #: model:ir.actions.act_window,name:sd_hr_holidays.hourly_leave_action
 #: model:ir.ui.menu,name:sd_hr_holidays.hourly_leave
 msgid "Hourly Leave"
-msgstr ""
+msgstr "مرخصی ساعتی"
 
 #. module: sd_hr_holidays
 #: model:ir.model,name:sd_hr_holidays.model_sd_hr_holidays_hourly_leave
 msgid "Hourly Leaves"
-msgstr ""
+msgstr "مرخصی های ساعتی"
 
 #. module: sd_hr_holidays
 #: model:ir.model.fields,field_description:sd_hr_holidays.field_hr_leave_type__hourly_mission
@@ -390,16 +385,18 @@ msgid "Leave"
 msgstr "مرخصی/ماموریت"
 
 #. module: sd_hr_holidays
-#: model:ir.ui.menu,name:sd_hr_holidays.menu_open_department_leave_dashboard
-msgid "Leave Dashboard"
-msgstr ""
+#. odoo-javascript
+#: code:addons/sd_hr_holidays/static/src/components/hr_holidays/hr_holidays_dashboard.js:0
+msgid "Leave/Mission Approve"
+msgstr "تایید مرخصی/ماموریت"
 
 #. module: sd_hr_holidays
 #. odoo-javascript
-#: code:addons/sd_hr_holidays/static/src/components/hr_holidays/hr_holidays_dashboard.js:0
 #: code:addons/sd_hr_holidays/static/src/components/hr_holidays/hr_holidays_dashboard.xml:0
-msgid "Leave/Mission Approve"
-msgstr "تایید مرخصی/ماموریت"
+#: model:ir.actions.client,name:sd_hr_holidays.hr_holidays_dashboard_action
+#: model:ir.ui.menu,name:sd_hr_holidays.menu_open_department_leave_dashboard
+msgid "Leave/Mission Dashboard"
+msgstr "داشبورد مرخصی/ماموریت"
 
 #. module: sd_hr_holidays
 #. odoo-javascript
@@ -685,7 +682,7 @@ msgstr "بازگشت"
 #: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_detail__return_city
 #: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_mission_report__return_city
 msgid "Return City"
-msgstr "شهر بازگشت"
+msgstr "شهر مقصد"
 
 #. module: sd_hr_holidays
 #: model:ir.model.fields,field_description:sd_hr_holidays.field_hr_leave__return_time
@@ -735,17 +732,12 @@ msgstr ""
 #. module: sd_hr_holidays
 #: model:ir.model,name:sd_hr_holidays.model_hr_leave
 msgid "Time Off"
-msgstr "مرخصی/ماموریت"
-
-#. module: sd_hr_holidays
-#: model:ir.ui.menu,name:sd_hr_holidays.menu_open_department_leave_approve
-msgid "Time Off 2"
-msgstr "مرخصی/ماموریت"
+msgstr "مرخصی"
 
 #. module: sd_hr_holidays
 #: model:ir.model,name:sd_hr_holidays.model_hr_leave_type
 msgid "Time Off Type"
-msgstr "نوع مرخصی/ماموریت"
+msgstr "نوع مرخصی"
 
 #. module: sd_hr_holidays
 #. odoo-python

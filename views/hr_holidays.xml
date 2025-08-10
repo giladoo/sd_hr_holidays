@@ -54,11 +54,16 @@
 
             </xpath>
             <xpath expr="//field[@name='activity_exception_decoration']" position="before">
-                <field name="registered" widget="boolean_toggle" groups="hr_holidays.group_hr_holidays_manager"/>
+
+                <field name="mission_validate" widget="badge" invisible="mission_validate in ['draft']"
+                       decoration-danger="mission_validate == 'reject'"
+                       decoration-success="mission_validate == 'validate'"
+                />
                 <field name="report_state" widget="badge" invisible="report_state in ['draft']"
                     decoration-warning="report_state == 'reported'"
                     decoration-success="report_state == 'approved'"
                 />
+                <field name="registered" widget="boolean_toggle" groups="hr_holidays.group_hr_holidays_manager"/>
             </xpath>
 
 
@@ -115,6 +120,7 @@
                         ('holiday_status_id.daily_mission', '=', True),
                         ('state', '=', 'validate'),
                         ('report_state', '=', 'draft'),
+                        ('mission_validate', '=', 'draft'),
                         ]"/>
 
             </xpath>
@@ -293,21 +299,21 @@
 
     <record id="hr_holidays_dashboard_action" model="ir.actions.client">
         <field name="path">time-off-dashboard</field>
-        <field name="name">HR Holidays Dashboard</field>
+        <field name="name">Leave/Mission Dashboard</field>
         <field name="tag">hr_holidays_dashboard</field>
     </record>
 
 
-    <menuitem
-        id="menu_open_department_leave_approve"
-        name="Time Off 2"
-        parent="hr_holidays.menu_hr_holidays_management"
-        action="hr_leave_action_action_approve_department_2"
-        sequence="5"/>
+<!--    <menuitem-->
+<!--        id="menu_open_department_leave_approve"-->
+<!--        name="Time Off 2"-->
+<!--        parent="hr_holidays.menu_hr_holidays_management"-->
+<!--        action="hr_leave_action_action_approve_department_2"-->
+<!--        sequence="5"/>-->
 
     <menuitem
         id="menu_open_department_leave_dashboard"
-        name="Leave Dashboard"
+        name="Leave/Mission Dashboard"
         parent="hr_holidays.menu_hr_holidays_management"
         action="hr_holidays_dashboard_action"
         sequence="5"/>

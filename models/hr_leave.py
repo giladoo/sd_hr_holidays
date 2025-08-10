@@ -290,6 +290,12 @@ class SdHrHolidaysLeave(models.Model):
         
     def get_leaves(self):
         uid = self.env.user.id
+        domain =         [
+                            ("employee_id.user_id", "=", uid),
+                            ("state", "in", ["confirm", "validate1"]),
+
+                          ]
+        my_requests = self.sudo().search(domain)
         domain =         ["&",
                                 ("state", "in", ["confirm", "validate1"]),
                              "|",
@@ -309,8 +315,10 @@ class SdHrHolidaysLeave(models.Model):
         ]
         my_reports = self.search(domain)
 
-        domain = [
+        domain = ["|",
             ("employee_id.leave_manager_id", "=", uid),
+            ("employee_id.user_id", "=", uid),
+                  "&",
             ("state", "=", "validate"),
             ("report_state", "=", "reported"),
         ]
@@ -331,12 +339,14 @@ class SdHrHolidaysLeave(models.Model):
 
             ("state", "=", "validate"),
             ("report_state", "=", "draft"),
+            ("mission_validate", "=", "draft"),
             ("daily_mission_validators", "in", self.env.user.id),
         ]
         mission_validation= self.sudo().search(domain)
 
 
-        return json.dumps({'my_actions': len(my_actions),
+        return json.dumps({'my_requests': len(my_requests),
+                           'my_actions': len(my_actions),
                            'my_reports': len(my_reports),
                            'my_approves': len(my_approves),
                            'not_registered': len(not_registered),
