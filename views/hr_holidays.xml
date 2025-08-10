@@ -311,10 +311,45 @@
 <!--        action="hr_leave_action_action_approve_department_2"-->
 <!--        sequence="5"/>-->
 
+<!--    <menuitem-->
+<!--        id="menu_open_department_leave_dashboard"-->
+<!--        name="Leave/Mission Dashboard"-->
+<!--        parent="hr_holidays.menu_hr_holidays_management"-->
+<!--        action="hr_holidays_dashboard_action"-->
+<!--        sequence="5"/>-->
+
+<!--  <record id="hr_holidays.hr_leave_menu_new_request" model="ir.ui.menu">-->
+<!--    <field name="sequence" eval="11"/>-->
+<!--  </record>-->
     <menuitem
         id="menu_open_department_leave_dashboard"
-        name="Leave/Mission Dashboard"
-        parent="hr_holidays.menu_hr_holidays_management"
+        name="Leave/Mission"
+        parent="hr_holidays.menu_hr_holidays_root"
         action="hr_holidays_dashboard_action"
-        sequence="5"/>
+        sequence="1"/>
+
+
+
+  <record id="hr_holidays.menu_hr_holidays_my_leaves" model="ir.ui.menu">
+    <field name="sequence" eval="11"/>
+  </record>
+
+  <record id="hr_holidays.menu_hr_holidays_dashboard" model="ir.ui.menu">
+    <field name="sequence" eval="12"/>
+  </record>
+  <record id="hr_holidays.menu_hr_holidays_management" model="ir.ui.menu">
+    <field name="sequence" eval="13"/>
+  </record>
+
+
+  <record id="hr_holidays.menu_hr_holidays_report" model="ir.ui.menu">
+    <field name="sequence" eval="14"/>
+  </record>
+
+  <record id="hr_holidays.menu_hr_holidays_configuration" model="ir.ui.menu">
+    <field name="sequence" eval="15"/>
+  </record>
+
+
+
 </odoo>

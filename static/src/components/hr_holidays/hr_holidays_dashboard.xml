@@ -6,29 +6,34 @@
         <div class="row">
 
         </div>
-        <div class="h1 my-3">
-            <span class="fa fa-refresh btn m-3" t-on-click="this.refresh_btn"></span>
+     <div class="row row-cols-auto my-4">
+        <div class=" col h1 ">
             Leave/Mission Dashboard
         </div>
-        <div class="row mx-md-5">
-            <TextBox name="state.texts.myRequests.name" value="state.texts.myRequests.value"
+         <div class="col fa fa-refresh btn btn-outline-primary mb-2 px-3 py-2" t-on-click="this.refresh_btn"></div>
+
+     </div>
+            <div class="row mx-md-5" >
+                <TextBox name="state.texts.myRequests.name" value="state.texts.myRequests.value" title="state.texts.myRequests.tooltip"
                      onClick="()=>onClick('leave_request')" icon="'fa fa-calendar'"/>
 
-            <TextBox name="state.texts.myActions.name" value="state.texts.myActions.value"
+            <TextBox name="state.texts.myActions.name" value="state.texts.myActions.value" title="state.texts.myActions.tooltip"
                      onClick="()=>onClick('leave_approve')" icon="'fa fa-pencil-square-o'"/>
-
-            <TextBox name="state.texts.missionValidation.name" value="state.texts.missionValidation.value"
+            <t t-if="state.is_validator or state.is_superuser or state.is_leave_supervisor">
+            <TextBox name="state.texts.missionValidation.name" value="state.texts.missionValidation.value"  title="state.texts.missionValidation.tooltip"
                      onClick="()=>onClick('mission_validation')" icon="'fa fa-thumbs-o-up'"/>
-
-            <TextBox name="state.texts.myReports.name" value="state.texts.myReports.value"
+            </t>
+            <TextBox name="state.texts.myReports.name" value="state.texts.myReports.value" title="state.texts.myReports.tooltip"
                      onClick="()=>onClick('mission_report')" icon="'fa fa-file-text  '"/>
 
-            <TextBox name="state.texts.myApproves.name" value="state.texts.myApproves.value"
+            <TextBox name="state.texts.myApproves.name" value="state.texts.myApproves.value" title="state.texts.myApproves.tooltip"
                      onClick="()=>onClick('report_approve')" icon="'fa fa-file-text-o '"/>
+            <t t-if="state.is_superuser or state.is_leave_supervisor">
+                <TextBox name="state.texts.notRegistered.name" value="state.texts.notRegistered.value" title="state.texts.notRegistered.tooltip"
+                         onClick="()=>onClick('not_registered')" icon="'fa fa-check-square-o '"
+                />
 
-            <TextBox name="state.texts.notRegistered.name" value="state.texts.notRegistered.value"
-                     onClick="()=>onClick('not_registered')" icon="'fa fa-check-square-o '"/>
-
+            </t>
         </div>
         </div>
     </t>

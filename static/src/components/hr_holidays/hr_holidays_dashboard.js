@@ -21,6 +21,7 @@ export class SdHrHolidaysDashboard extends Component {
     static components = {  TextBox };
     static props = ["*"];
     setup() {
+    console.log('session', session)
 
         this.getData = this.getData.bind(this)
         this.onClick = this.onClick.bind(this);
@@ -28,13 +29,17 @@ export class SdHrHolidaysDashboard extends Component {
 
         this.state = useState({
             texts: {
-                myRequests: {name: _t('Leave/Mission Request'), value: 0},
-                myActions: {name: _t('Leave/Mission Approve'), value: 0},
-                missionValidation: {name: _t('Mission Validation'), value: 0},
-                myReports: {name: _t('Mission Reports'), value: 0},
-                myApproves: {name: _t('Report Approves'), value: 0},
-                notRegistered: {name: _t('Not Registered'), value: 0},
+                myRequests: {name: _t('Leave/Mission Request'), tooltip: _t('Number of not approved requests. '), value: 0},
+                myActions: {name: _t('Leave/Mission Approve'), tooltip: _t('Number of waiting request to approve'), value: 0},
+                missionValidation: {name: _t('Daily Mission Validation'), tooltip: _t('Number of waiting missions to validate'), value: 0},
+                myReports: {name: _t('Mission Reports'), tooltip: _t('Number missions waiting for report to be written'), value: 0},
+                myApproves: {name: _t('Report Approves'), tooltip: _t('Number of missions reports to be approved'), value: 0},
+                notRegistered: {name: _t('Not Registered'), tooltip: _t('Requests which are not registered to Donyay Pardazesh yet!'), value: 0},
             },
+            is_superuser: false,
+            is_validator: false,
+            is_leave_supervisor: false,
+
         })
         this.orm = useService("orm")
         this.actionService = useService("action")
@@ -43,13 +48,13 @@ export class SdHrHolidaysDashboard extends Component {
         })
         onMounted(async ()=>{
 //            this.onTextClick([{total: ['', 0, 0]}])
-//            let oActionManager = document.querySelector('.o_action_manager')
-//            oActionManager && (oActionManager.style.overflowY = 'auto')
+            let oActionManager = document.querySelector('.o_action_manager')
+            oActionManager && (oActionManager.style.overflowY = 'auto')
 //            this.setPlotlyEvent()
         })
         onWillUnmount(()=>{
-//            let oActionManager = document.querySelector('.o_action_manager')
-//            oActionManager && (oActionManager.style.overflowY = '')
+            let oActionManager = document.querySelector('.o_action_manager')
+            oActionManager && (oActionManager.style.overflowY = '')
         })
 //        console.log('this:', this, session)
     }
@@ -66,6 +71,9 @@ export class SdHrHolidaysDashboard extends Component {
         this.state.texts['myApproves'].value = getLeave.my_approves || 0
         this.state.texts['notRegistered'].value = getLeave.not_registered || 0
         this.state.texts['missionValidation'].value = getLeave.mission_validation || 0
+        this.state['is_superuser'] = getLeave.is_superuser || false
+        this.state['is_validator'] = getLeave.is_validator || false
+        this.state['is_leave_supervisor'] = getLeave.is_leave_supervisor || false
 
     }
     onClick(param){

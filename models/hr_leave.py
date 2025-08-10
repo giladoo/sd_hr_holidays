@@ -343,14 +343,18 @@ class SdHrHolidaysLeave(models.Model):
             ("daily_mission_validators", "in", self.env.user.id),
         ]
         mission_validation= self.sudo().search(domain)
-
-
+        is_superuser =  self.env.is_superuser() or self.env.is_system()
+        is_validator = True if self.sudo().search_count([("daily_mission_validators", "in", self.env.user.id)]) else False
+        is_leave_supervisor = self.env.user.has_group('hr_holidays.group_hr_holidays_manager')
         return json.dumps({'my_requests': len(my_requests),
                            'my_actions': len(my_actions),
                            'my_reports': len(my_reports),
                            'my_approves': len(my_approves),
                            'not_registered': len(not_registered),
                            'mission_validation': len(mission_validation),
+                           'is_superuser': is_superuser,
+                           'is_validator': is_validator,
+                           'is_leave_supervisor': is_leave_supervisor,
                            })
 
 class SdHrHolidaysLeave(models.Model):
