@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-09 05:15+0000\n"
-"PO-Revision-Date: 2025-08-09 08:53+0330\n"
+"POT-Creation-Date: 2025-08-10 06:37+0000\n"
+"PO-Revision-Date: 2025-08-10 10:30+0330\n"
 "Last-Translator: Arash Homayounfar <homayounfar@msn.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -72,6 +72,7 @@ msgstr ""
 
 #. module: sd_hr_holidays
 #: model:ir.actions.act_window,name:sd_hr_holidays.hr_leave_action_action_approve_department_4
+#: model:ir.actions.act_window,name:sd_hr_holidays.hr_leave_action_action_approve_department_5
 msgid "All Time Off 4"
 msgstr ""
 
@@ -151,6 +152,12 @@ msgid "Daily Mission Calendar"
 msgstr ""
 
 #. module: sd_hr_holidays
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_hr_leave__daily_mission_validators
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_hr_leave_type__daily_mission_validators
+msgid "Daily Mission Validators"
+msgstr ""
+
+#. module: sd_hr_holidays
 #: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_hourly_leave__department_id
 msgid "Department"
 msgstr "واحد سازمانی"
@@ -198,15 +205,16 @@ msgid "Display Name"
 msgstr ""
 
 #. module: sd_hr_holidays
+#: model:ir.model.fields.selection,name:sd_hr_holidays.selection__hr_leave__mission_validate__draft
+#: model:ir.model.fields.selection,name:sd_hr_holidays.selection__hr_leave__report_state__draft
+msgid "Draft"
+msgstr ""
+
+#. module: sd_hr_holidays
 #: model:ir.model,name:sd_hr_holidays.model_hr_employee
 #: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_hourly_leave__employee_id
 msgid "Employee"
 msgstr "کارمند"
-
-#. module: sd_hr_holidays
-#: model:ir.model.fields.selection,name:sd_hr_holidays.selection__hr_leave__report_state__empty
-msgid "Empty"
-msgstr ""
 
 #. module: sd_hr_holidays
 #: model:ir.model.fields.selection,name:sd_hr_holidays.selection__sd_hr_holidays_mission_detail__departure_time__evening
@@ -247,12 +255,6 @@ msgstr "میهمان سرا"
 #: model:ir.actions.client,name:sd_hr_holidays.hr_holidays_dashboard_action
 msgid "HR Holidays Dashboard"
 msgstr "داشبورد مرخصی/ماموریت"
-
-#. module: sd_hr_holidays
-#. odoo-javascript
-#: code:addons/sd_hr_holidays/static/src/components/hr_holidays/hr_holidays_dashboard.xml:0
-msgid "HR LEAVES"
-msgstr ""
 
 #. module: sd_hr_holidays
 #: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_hourly_leave__has_message
@@ -395,8 +397,15 @@ msgstr ""
 #. module: sd_hr_holidays
 #. odoo-javascript
 #: code:addons/sd_hr_holidays/static/src/components/hr_holidays/hr_holidays_dashboard.js:0
+#: code:addons/sd_hr_holidays/static/src/components/hr_holidays/hr_holidays_dashboard.xml:0
 msgid "Leave/Mission Approve"
 msgstr "تایید مرخصی/ماموریت"
+
+#. module: sd_hr_holidays
+#. odoo-javascript
+#: code:addons/sd_hr_holidays/static/src/components/hr_holidays/hr_holidays_dashboard.js:0
+msgid "Leave/Mission Request"
+msgstr "درخواست مرخصی/ماموریت"
 
 #. module: sd_hr_holidays
 #: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_hourly_leave__message_has_error
@@ -438,6 +447,28 @@ msgstr "گزارش ماموریت"
 #: code:addons/sd_hr_holidays/static/src/components/hr_holidays/hr_holidays_dashboard.js:0
 msgid "Mission Reports"
 msgstr "گزارش ماموریت"
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields,field_description:sd_hr_holidays.field_hr_leave__mission_validate
+msgid "Mission Validate"
+msgstr "تایید ماموریت"
+
+#. module: sd_hr_holidays
+#. odoo-javascript
+#: code:addons/sd_hr_holidays/static/src/components/hr_holidays/hr_holidays_dashboard.js:0
+#: model_terms:ir.ui.view,arch_db:sd_hr_holidays.view_hr_holidays_filter_inherit
+msgid "Mission Validation"
+msgstr "تایید ماموریت"
+
+#. module: sd_hr_holidays
+#: model_terms:ir.ui.view,arch_db:sd_hr_holidays.hr_leave_view_form_inherit
+msgid "Mission is rejected"
+msgstr "ماموریت رد شد"
+
+#. module: sd_hr_holidays
+#: model_terms:ir.ui.view,arch_db:sd_hr_holidays.hr_leave_view_form_inherit
+msgid "Mission is validated"
+msgstr "ماموریت تایید شد"
 
 #. module: sd_hr_holidays
 #: model:ir.model.fields.selection,name:sd_hr_holidays.selection__sd_hr_holidays_mission_detail__departure_time__morning
@@ -571,6 +602,12 @@ msgid "Registered"
 msgstr "ثبت شده"
 
 #. module: sd_hr_holidays
+#: model:ir.model.fields.selection,name:sd_hr_holidays.selection__hr_leave__mission_validate__reject
+#: model_terms:ir.ui.view,arch_db:sd_hr_holidays.hr_leave_view_form_inherit
+msgid "Reject"
+msgstr "رد"
+
+#. module: sd_hr_holidays
 #: model:ir.model.fields.selection,name:sd_hr_holidays.selection__sd_hr_holidays_mission_detail__departure_type__rental_car
 #: model:ir.model.fields.selection,name:sd_hr_holidays.selection__sd_hr_holidays_mission_detail__return_type__rental_car
 #: model:ir.model.fields.selection,name:sd_hr_holidays.selection__sd_hr_holidays_mission_report__departure_type__rental_car
@@ -608,7 +645,7 @@ msgstr "گزارش شده"
 #. module: sd_hr_holidays
 #: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_hourly_leave__request_date
 msgid "Request Date"
-msgstr "تاریخ درخواست"
+msgstr "تاریخ برگشت"
 
 #. module: sd_hr_holidays
 #: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_hourly_leave__request_date_to
@@ -698,17 +735,17 @@ msgstr ""
 #. module: sd_hr_holidays
 #: model:ir.model,name:sd_hr_holidays.model_hr_leave
 msgid "Time Off"
-msgstr "مرخصی"
+msgstr "مرخصی/ماموریت"
 
 #. module: sd_hr_holidays
 #: model:ir.ui.menu,name:sd_hr_holidays.menu_open_department_leave_approve
 msgid "Time Off 2"
-msgstr ""
+msgstr "مرخصی/ماموریت"
 
 #. module: sd_hr_holidays
 #: model:ir.model,name:sd_hr_holidays.model_hr_leave_type
 msgid "Time Off Type"
-msgstr "نوع مرخصی"
+msgstr "نوع مرخصی/ماموریت"
 
 #. module: sd_hr_holidays
 #. odoo-python
@@ -719,7 +756,7 @@ msgstr ""
 #. module: sd_hr_holidays
 #: model_terms:ir.ui.view,arch_db:sd_hr_holidays.hr_leave_view_form_inherit
 msgid "Travel"
-msgstr "مسافرت"
+msgstr "اطلاعات سفر"
 
 #. module: sd_hr_holidays
 #: model:ir.model.fields,help:sd_hr_holidays.field_sd_hr_holidays_hourly_leave__activity_exception_decoration
@@ -727,6 +764,11 @@ msgstr "مسافرت"
 #: model:ir.model.fields,help:sd_hr_holidays.field_sd_hr_holidays_mission_report__activity_exception_decoration
 msgid "Type of the exception activity on record."
 msgstr ""
+
+#. module: sd_hr_holidays
+#: model_terms:ir.ui.view,arch_db:sd_hr_holidays.hr_leave_view_form_inherit
+msgid "Validate"
+msgstr "تایید"
 
 #. module: sd_hr_holidays
 #: model:ir.model.fields,field_description:sd_hr_holidays.field_sd_hr_holidays_hourly_leave__website_message_ids
@@ -746,3 +788,8 @@ msgstr ""
 #: model:ir.model,name:sd_hr_holidays.model_sd_hr_holidays_mission_detail
 msgid "sd_hr_holidays.mission_detail"
 msgstr ""
+
+#. module: sd_hr_holidays
+#: model:ir.model.fields.selection,name:sd_hr_holidays.selection__hr_leave__mission_validate__validate
+msgid "validate"
+msgstr "تایید"

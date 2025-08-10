@@ -8,23 +8,26 @@
         </div>
         <div class="h1 my-3">
             <span class="fa fa-refresh btn m-3" t-on-click="this.refresh_btn"></span>
-            Leave/Mission Approve
+            Leave/Mission Panel
         </div>
         <div class="row mx-md-5">
+            <TextBox name="state.texts.myRequests.name" value="state.texts.myRequests.value"
+                     onClick="()=>onClick('leave_request')" icon="'fa fa-ship'"/>
+
             <TextBox name="state.texts.myActions.name" value="state.texts.myActions.value"
-                     onClick="()=>onClick('leave_approve')" icon="'fa fa-plane text-primary'"/>
+                     onClick="()=>onClick('leave_approve')" icon="'fa fa-plane'"/>
 
             <TextBox name="state.texts.missionValidation.name" value="state.texts.missionValidation.value"
-                     onClick="()=>onClick('mission_validation')" icon="'fa fa-thumbs-o-up text-primary'"/>
+                     onClick="()=>onClick('mission_validation')" icon="'fa fa-thumbs-o-up'"/>
 
             <TextBox name="state.texts.myReports.name" value="state.texts.myReports.value"
-                     onClick="()=>onClick('mission_report')" icon="'fa fa-file-text  text-primary'"/>
+                     onClick="()=>onClick('mission_report')" icon="'fa fa-file-text  '"/>
 
             <TextBox name="state.texts.myApproves.name" value="state.texts.myApproves.value"
-                     onClick="()=>onClick('report_approve')" icon="'fa fa-file-text-o text-primary'"/>
+                     onClick="()=>onClick('report_approve')" icon="'fa fa-file-text-o '"/>
 
             <TextBox name="state.texts.notRegistered.name" value="state.texts.notRegistered.value"
-                     onClick="()=>onClick('not_registered')" icon="'	fa fa-check-square-o text-primary'"/>
+                     onClick="()=>onClick('not_registered')" icon="'	fa fa-check-square-o '"/>
 
         </div>
         </div>

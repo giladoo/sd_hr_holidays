@@ -28,6 +28,7 @@ export class SdHrHolidaysDashboard extends Component {
 
         this.state = useState({
             texts: {
+                myRequests: {name: _t('Leave/Mission Request'), value: 0},
                 myActions: {name: _t('Leave/Mission Approve'), value: 0},
                 missionValidation: {name: _t('Mission Validation'), value: 0},
                 myReports: {name: _t('Mission Reports'), value: 0},
@@ -59,6 +60,7 @@ export class SdHrHolidaysDashboard extends Component {
 //        readGroup(model, domain, fields, groupby, kwargs = {})
 
         console.log('getLeave:', getLeave)
+        this.state.texts['myRequests'].value = getLeave.my_requests || 0
         this.state.texts['myActions'].value = getLeave.my_actions || 0
         this.state.texts['myReports'].value = getLeave.my_reports || 0
         this.state.texts['myApproves'].value = getLeave.my_approves || 0
@@ -68,7 +70,9 @@ export class SdHrHolidaysDashboard extends Component {
     }
     onClick(param){
         console.log('onClick', param)
-        if (param == 'leave_approve'){
+        if (param == 'leave_request'){
+            this.actionService.doAction("hr_holidays.hr_leave_action_new_request", {target: "new",})
+        } else if (param == 'leave_approve'){
             this.actionService.doAction("hr_holidays.hr_leave_action_action_approve_department", {target: "new",})
         } else if (param == 'mission_report'){
             this.actionService.doAction("sd_hr_holidays.hr_leave_action_action_approve_department_2")
